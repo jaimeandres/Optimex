@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--DOCTYPE html>
 <html>
  <head>
   <title>Optimex</title>
@@ -14,7 +14,10 @@
   </style>
  </head>
  <body>
-  <br />
+  <br /-->
+@extends('app')
+
+@section('content')
   <div class="container box">
    <h3 align="center">Login</h3><br />
 
@@ -30,5 +33,6 @@
    
    <br />
   </div>
- </body>
-</html>
+@endsection
+ <!--/body>
+</html-->
