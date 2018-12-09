@@ -11,15 +11,10 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
-/*Route::get('/inicio', 'MainController@index');
-Route::post('/inicio/checklogin', 'MainController@checklogin');
-Route::get('inicio/successlogin', 'MainController@successlogin');
-Route::get('inicio/logout', 'MainController@logout');*/
+Route::get('/', 'WelcomeController@index');
+Route::get('/inicio', 'HomeController@index');
 
-Route::group(['middleware' => ['auth','no-cache']], function () {
-  Route::get('/inicio', 'MainController@index');
-  Route::post('/inicio/checklogin', 'MainController@checklogin');
-  Route::get('inicio/successlogin', 'MainController@successlogin');
-  Route::get('inicio/logout', 'MainController@logout');
-});
+/*Route::group(['middleware' => ['auth','no-cache']], function () {
+  Route::get('/inicio', 'HomeController@index');
+});*/
+Auth::routes();
