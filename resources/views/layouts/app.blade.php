@@ -41,14 +41,11 @@
                         @if(!Auth::guest())
                             <li><a href="{{URL::to('/inicio')}}">Inicio</a></li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Gestionar <span class="caret"></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Gestión <span class="caret"></a>
                                 <ul class="dropdown-menu" role="menu">                                  
-                                    <li><a href="{{URL::to('/gestionar/tipo-habitacion')}}">Tipo de Habitación</a></li>                                 
-                                    <li><a href="{{URL::to('/gestionar/habitacion')}}">Habitación</a></li>
-                                    <li><a href="{{URL::to('/gestionar/reserva')}}">Reserva</a></li>
-                                    <li><a href="{{URL::to('/gestionar/reserva')}}">Reserva</a></li>
-                                    <li><a href="{{URL::to('silabos/carreras')}}">Sílabos por materia</a></li>
-                                    <li><a href="{{URL::to('/gestionar/ingreso-logros-carrera')}}">Estándares de Logro</a></li>
+                                    <li><a href="{{URL::to('/gestionar/tipo-habitacion')}}">Usuarios</a></li>                                 
+                                    <li><a href="{{URL::to('/gestionar/habitacion')}}">Productos</a></li>
+                                    <li><a href="{{URL::to('/gestionar/reserva')}}">Relacionar</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -87,6 +84,7 @@
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>
+                            <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
