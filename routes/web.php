@@ -18,3 +18,6 @@ Route::get('/inicio', 'HomeController@index');
   Route::get('/inicio', 'HomeController@index');
 });*/
 Auth::routes();
+Route::resource('usuarios', 'UsuarioController');
+Route::resource('productos', 'ProductoController');
+Route::resource('relacion', 'RelacionController');

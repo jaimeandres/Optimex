@@ -43,12 +43,12 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Gestión <span class="caret"></a>
                                 <ul class="dropdown-menu" role="menu">                                  
-                                    <li><a href="{{URL::to('/gestionar/tipo-habitacion')}}">Usuarios</a></li>                                 
-                                    <li><a href="{{URL::to('/gestionar/habitacion')}}">Productos</a></li>
-                                    <li><a href="{{URL::to('/gestionar/reserva')}}">Relacionar</a></li>
+                                    <li><a href="{{URL::to('/usuarios')}}">Usuarios</a></li>                                 
+                                    <li><a href="{{URL::to('/productos')}}">Productos</a></li>
+                                    <li><a href="{{URL::to('/relacion')}}">Relacionar</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <!--li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Reportes<span class="caret"></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{URL::to('/reportes/reportes-general-con-logros')}}">Estándares de logro Institucionales y de Carrera</a></li>
@@ -75,7 +75,7 @@
                                     <li><a href="{{URL::to('/param/periodo')}}">Seleccionar Período</a></li>
                                     <li><a href="{{URL::to('/param/periodo/add')}}">Crear período</a></li>
                                 </ul>
-                            </li>
+                            </li-->
                         @endif
                     </ul>
 

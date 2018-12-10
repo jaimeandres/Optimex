@@ -16,6 +16,7 @@ class UsersTableSeeder extends Seeder
         	'name' => 'Jaime Berrazueta',
         	'email' => 'jaime.berrazueta@udla.edu.ec',
         	'password' => Hash::make('1234567'),
+            'rol' => '99',
         	'remember_token' => str_random(10)
         ]);
     }

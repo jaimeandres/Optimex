@@ -18,7 +18,38 @@ class UsuarioController extends Controller
     }
 
     public function index()
-    {
-        return view('home');
-    }
+	{
+		//
+	}
+
+	public function create()
+	{
+		return view('usuario.create');
+	}
+
+	public function store()
+	{
+		//
+	}
+
+	public function show()
+	{
+		//
+		
+	}
+
+	public function edit($id)
+	{
+		//
+	}
+
+	public function update($id)
+	{
+		//
+	}
+
+	public function destroy($id)
+	{
+		//
+	}
 }
