@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests;
 
 use App\Producto;
 use Auth;
@@ -33,7 +34,7 @@ class ProductoController extends Controller
 		$producto = new Producto();
 		$producto->nombre = Input::get('nombre');
 		$url = "/productos";
-		if($tipo->save()){
+		if($producto->save()){
 			return redirect($url)->with('mensaje', 'Ingreso exitoso');
 		}else{
 			return redirect($url)->with('warning', 'Ingreso fallido');
