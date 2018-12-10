@@ -19,14 +19,6 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3">
-              Cantidad Disponible
-            </label>
-            <div class="col-md-9">
-              <input type="text" name="cantidad" value="" class="form-control" required>
-            </div>
-          </div>
-          <div class="form-group">
             <div class="col-md-9 col-md-offset-3">
               <input type="submit" name="Guardar" value="Ingresar" class="btn btn-primary" >
             </div>

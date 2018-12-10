@@ -19,7 +19,8 @@ class UsuarioController extends Controller
 
     public function index()
 	{
-		//
+		$usuarios = User::all();
+		return view('usuario.index')->with('usuarios',$usuarios);
 	}
 
 	public function create()
@@ -34,8 +35,7 @@ class UsuarioController extends Controller
 
 	public function show()
 	{
-		//
-		
+		//		
 	}
 
 	public function edit($id)

@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+use App\Producto;
+use Auth;
+use DB;
+use Input;
 
 class ProductoController extends Controller
 {
@@ -13,17 +19,25 @@ class ProductoController extends Controller
 
     public function index()
 	{
-		//
+		$productos = Producto::all();
+		return view('producto.index')->with('productos',$productos);
 	}
 
 	public function create()
 	{
-		return view('usuario.create');
+		return view('producto.create');
 	}
 
 	public function store()
 	{
-		//
+		$producto = new Producto();
+		$producto->nombre = Input::get('nombre');
+		$url = "/productos";
+		if($tipo->save()){
+			return redirect($url)->with('mensaje', 'Ingreso exitoso');
+		}else{
+			return redirect($url)->with('warning', 'Ingreso fallido');
+		}
 	}
 
 	public function show()

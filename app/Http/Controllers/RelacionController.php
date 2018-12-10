@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+use App\Relacion;
+use Auth;
+use DB;
+use Input;
 
 class RelacionController extends Controller
 {
@@ -18,7 +24,7 @@ class RelacionController extends Controller
 
 	public function create()
 	{
-		return view('usuario.create');
+		return view('relacion.create');
 	}
 
 	public function store()
