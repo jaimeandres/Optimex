@@ -43,39 +43,11 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Gestión <span class="caret"></a>
                                 <ul class="dropdown-menu" role="menu">                                  
-                                    <li><a href="{{URL::to('/usuarios')}}">Usuarios</a></li>                                 
+                                    <li><a href="{{URL::to('/register')}}">Usuarios</a></li>
                                     <li><a href="{{URL::to('/productos')}}">Productos</a></li>
                                     <li><a href="{{URL::to('/relacion')}}">Relacionar</a></li>
                                 </ul>
                             </li>
-                            <!--li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Reportes<span class="caret"></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{URL::to('/reportes/reportes-general-con-logros')}}">Estándares de logro Institucionales y de Carrera</a></li>
-                                    <li><a href="{{URL::to('/reportes/reportes-carrera')}}">Resultados de aprendizaje de la Carrera vs Materias</a></li>
-                                    <li><a href="{{URL::to('/reporte/rda-carreras')}}">Porcentajes de Materias vs RdA</a></li>
-                                    <li><a href="{{URL::to('/mapeo')}}">Mapeos</a></li>
-                                    <li><a href="{{URL::to('/reportes/rda-observaciones')}}">Observaciones de Sílabos</a></li>
-                                    <li><a href="{{URL::to('/reportes/rda-observaciones-mapeo-general')}}">Observaciones del Mapeo General</a></li>
-                                    <li><a href="{{URL::to('/reportes/rda-perfil-materias')}}">Resultados de aprendizaje Perfil de Carrera vs Materias</a></li>
-                                    <li><a href="{{URL::to('/reportes/rda-perfil-materias-consolidado')}}">Nº de RDA de Asignatura por RDA Carrera</a></li>
-                                    <li><a href="{{URL::to('/gestionar/silabosgraficos')}}">Malla gráfica</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Usuarios <span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{URL::to('/register')}}">Crear</a></li>
-                                    <li><a href="{{URL::to('/usuarios/mostrar')}}">Administrar</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Parámetros <span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{URL::to('/param/periodo')}}">Seleccionar Período</a></li>
-                                    <li><a href="{{URL::to('/param/periodo/add')}}">Crear período</a></li>
-                                </ul>
-                            </li-->
                         @endif
                     </ul>
 
@@ -84,7 +56,7 @@
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <!--li><a href="{{ route('register') }}">Register</a></li-->
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
