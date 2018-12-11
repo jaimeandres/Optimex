@@ -17,6 +17,7 @@ class CreateProductoTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->integer('stock');
+            $table->integer('estado');
             $table->timestamps();
         });
     }

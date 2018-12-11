@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-12-2018 a las 21:50:19
+-- Tiempo de generación: 11-12-2018 a las 06:23:28
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.0.32
 
@@ -78,6 +78,7 @@ CREATE TABLE `producto` (
   `id` int(10) UNSIGNED NOT NULL,
   `nombre` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `stock` int(11) DEFAULT '0',
+  `estado` int(11) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -86,9 +87,9 @@ CREATE TABLE `producto` (
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`id`, `nombre`, `stock`, `created_at`, `updated_at`) VALUES
-(1, 'Producto 1', 0, '2018-12-11 01:49:47', '2018-12-11 01:49:47'),
-(2, 'Producto 2', 0, '2018-12-11 01:49:57', '2018-12-11 01:49:57');
+INSERT INTO `producto` (`id`, `nombre`, `stock`, `estado`, `created_at`, `updated_at`) VALUES
+(1, 'Producto 1', 0, 1, '2018-12-11 01:49:47', '2018-12-11 01:49:47'),
+(2, 'Producto 2', 0, 0, '2018-12-11 01:49:57', '2018-12-11 01:49:57');
 
 -- --------------------------------------------------------
 
@@ -112,9 +113,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `rol`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Jaime Berrazueta', 'jaime.berrazueta@udla.edu.ec', '$2y$10$mFT5QB2vgorBGe.Lv9qgBeNJ2TF2VBvfEqhQAPoYZXo63HjN4Kjy.', 99, 'Ov50l5LJzwEJPuQAeeIGra50KQxKuZh2506BcahCnJPWlaTtAaDByW244RJr', '2018-12-10 09:28:44', '2018-12-10 09:28:44'),
-(2, 'Gerente Producto 1', 'gerente.producto@empresa.com', '$2y$10$S6JllzGQtHUlmZ9eZ/Ukz.praPBSPKHAE6gttUr9DUAhTm21FMGQm', 1, NULL, '2018-12-11 01:30:46', '2018-12-11 01:30:46'),
-(3, 'Administrativo 1', 'administrativo@empresa.com', '$2y$10$lqzoIHYuLlm1OOQQJ1gajOih4HZEpkD3BeR36BaeOsebNcQ2t6uMK', 2, NULL, '2018-12-11 01:31:29', '2018-12-11 01:31:29');
+(1, 'Jaime Berrazueta', 'jaime.berrazueta@udla.edu.ec', '$2y$10$mFT5QB2vgorBGe.Lv9qgBeNJ2TF2VBvfEqhQAPoYZXo63HjN4Kjy.', 99, '9pg4hx9cJhgGcOv8cEhwjMiLBV35T88IMdDjJcynlFUsqstYPp3QdtwGE5WB', '2018-12-10 09:28:44', '2018-12-10 09:28:44'),
+(2, 'Gerente Producto 1', 'gerente.producto@empresa.com', '$2y$10$S6JllzGQtHUlmZ9eZ/Ukz.praPBSPKHAE6gttUr9DUAhTm21FMGQm', 1, 'gglz7jDf50VaW1ctw0NyTDcXQQOFsecLXUH8E91qxI2ujkRSlTPnDybLa5GZ', '2018-12-11 01:30:46', '2018-12-11 01:30:46'),
+(3, 'Administrativo 1', 'administrativo@empresa.com', '$2y$10$lqzoIHYuLlm1OOQQJ1gajOih4HZEpkD3BeR36BaeOsebNcQ2t6uMK', 2, 'mlN2y1lZhFD8OMxlxrOVkyvI6Bga3OW4byKh1KSizNwnAS6ULrxM92bWvOsa', '2018-12-11 01:31:29', '2018-12-11 01:31:29'),
+(4, 'Gerente Producto 2', 'gerente.producto1@empresa.com', '$2y$10$V/ikpML.lakBA9eGQ0TRE.px/aXY41sMvgER5j8FSRBG6SpcLJip2', 1, NULL, '2018-12-11 10:01:15', '2018-12-11 10:01:15');
 
 --
 -- Índices para tablas volcadas
@@ -170,7 +172,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

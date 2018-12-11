@@ -2,17 +2,18 @@
 
 @section('content')
 <div class="container">
-	<div class="card">
-		<div class="table-responsive">			
-			<h4>Usuarios registrados</h4>
-			<a class="link_" href="{{URL::to('/register')}}"><button class="btn-add" style="float:right">Registar</button></a>
-			@if (Session::has('mensaje'))
-				<div class="alert alert-success">{{Session::get('mensaje', '')}}</div>
-	        @endif
-	        @if (Session::has('warning'))
-	        	<div class="alert alert-warning">{{Session::get('warning', '')}}</div>
-	        @endif
-			<table class="table table-bordered">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="panel panel-default">
+      <div class="panel-heading h-60">Usuarios registrados<a class="link_" href="{{URL::to('/register')}}"><button class="btn-add" style="float:right">Registar</button></a>
+        <div class="panel-body">
+          @if (Session::has('mensaje'))
+            <div class="alert alert-success">{{Session::get('mensaje', '')}}</div>
+          @endif
+          @if (Session::has('warning'))
+            <div class="alert alert-warning">{{Session::get('warning', '')}}</div>
+          @endif
+          	<table class="table table-bordered">
 				<col width="50%">
               	<col width="50%">
 				<thead>
@@ -26,7 +27,9 @@
 					</tr>
 				@endforeach
 			</table>
-		</div>
-	</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 @endsection

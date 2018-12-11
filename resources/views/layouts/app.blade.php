@@ -40,14 +40,16 @@
                     <ul class="nav navbar-nav">
                         @if(!Auth::guest())
                             <li><a href="{{URL::to('/inicio')}}">Inicio</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Gestión <span class="caret"></a>
-                                <ul class="dropdown-menu" role="menu">                                  
-                                    <li><a href="{{URL::to('/usuarios')}}">Usuarios</a></li>
-                                    <li><a href="{{URL::to('/productos')}}">Productos</a></li>
-                                    <li><a href="{{URL::to('/relacion')}}">Relacionar</a></li>
-                                </ul>
-                            </li>
+                            @if(Auth::user()->rol == 99)
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Gestión <span class="caret"></a>
+                                    <ul class="dropdown-menu" role="menu">                                  
+                                        <li><a href="{{URL::to('/usuarios')}}">Usuarios</a></li>
+                                        <li><a href="{{URL::to('/productos')}}">Productos</a></li>
+                                        <li><a href="{{URL::to('/relacion')}}">Relacionar</a></li>
+                                    </ul>
+                                </li>
+                            @endif
                         @endif
                     </ul>
 
