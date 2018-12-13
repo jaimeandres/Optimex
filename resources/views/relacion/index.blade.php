@@ -5,34 +5,33 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <div class="panel panel-default">
-      <div class="panel-heading">Seleccionar Gerente de Producto</div>
+      <div class="panel-heading h-60">Asociación entre Gerentes y Productos
+        <br>
+        <h5 align="center">Gerentes de Producto</h5>
+        <a class="link_" href="{{URL::to('/relacion/create')}}"><button class="btn-add" style="float:right">Asociar</button></a><br>
         <div class="panel-body">
-          <form action="{{URL::to('/relacion/create')}}" method="GET" class="form-horizontal">
-              <div class="form-group">
-                <label class="control-label col-md-3">
-                  Rol
-                </label>
-                <div class="col-md-9">
-                  <select class="form-control" name="rol">
-                    @foreach ($usuarios as $usuario)
-                      <option value="{{$usuario->id}}">{{$usuario->name}}</option>
-                    @endforeach
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="col-md-9 col-md-offset-3">
-                  <button type="submit"  class="btn btn-primary">Relacionar</button>
-                </div>
-              </div>
-          </form>
-          <form action="{{URL::to('/relacion').'/'.$usuario->id}}" method="GET" class="form-horizontal">
-            <div class="form-group">
-                <div class="col-md-9 col-md-offset-3">
-                  <button type="submit"  class="btn btn-primary">Consultar</button>
-                </div>
-              </div>
-          </form>
+          @if (Session::has('mensaje'))
+            <div class="alert alert-success">{{Session::get('mensaje', '')}}</div>
+          @endif
+          @if (Session::has('warning'))
+            <div class="alert alert-warning">{{Session::get('warning', '')}}</div>
+          @endif
+            <table class="table table-bordered">
+              <col width="50%">
+                      <col width="50%">
+              <thead>
+                <th>Nombre</th>
+                <th>Productos a cargo</th>
+              </thead>
+              @foreach($usuarios as $usuario)
+                <tr>
+                  <td>{{ $usuario->name }}</td>
+                  <td>
+                    <a href="{{URL::to('/relacion/create')}}"><span>{{ $usuario->email }}</span></a>
+                  </td>
+                </tr>
+              @endforeach
+            </table>
         </div>
       </div>
     </div>

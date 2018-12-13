@@ -14,19 +14,19 @@
             <div class="alert alert-warning">{{Session::get('warning', '')}}</div>
           @endif
           	<table class="table table-bordered">
-				<col width="50%">
-              	<col width="50%">
-				<thead>
-					<th>Nombre</th>
-					<th>Cantidad</th>
-				</thead>
-				@foreach($productos as $producto)
-					<tr>
-						<td>{{ $producto->nombre }}</td>
-						<td>{{ $producto->stock }}</td>
-					</tr>
-				@endforeach
-			</table>
+      				<col width="50%">
+                    	<col width="50%">
+      				<thead>
+      					<th>Nombre</th>
+      					<th>Cantidad</th>
+      				</thead>
+      				@foreach($productos as $producto)
+      					<tr>
+      						<td>{{ $producto->nombre }}</td>
+      						<td>{{ $producto->stock }}</td>
+      					</tr>
+      				@endforeach
+      			</table>
         </div>
       </div>
     </div>
