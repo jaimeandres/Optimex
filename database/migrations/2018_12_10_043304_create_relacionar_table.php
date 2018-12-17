@@ -15,8 +15,10 @@ class CreateRelacionarTable extends Migration
     {
         Schema::create('gerenteProducto', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idUsuario');
-            $table->integer('idProducto');
+            $table->integer('idUsuario')->unsigned();
+            $table->foreign('idUsuario')->references('id')->on('users');
+            $table->integer('idProducto')->unsigned();
+            $table->foreign('idProducto')->references('id')->on('producto');
             $table->timestamps();
         });
     }

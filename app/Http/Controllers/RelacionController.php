@@ -55,6 +55,19 @@ class RelacionController extends Controller
 		}
 	}
 
+	public function mostrar($id)
+	{
+		/*SELECT gp.idUsuario, gp.idProducto, p.id, p.nombre FROM gerenteproducto as gp, producto as p WHERE gp.idProducto=p.id and gp.idUsuario=2;*/
+
+		$productos =DB::table('gerenteproducto')->join('producto', 'gerenteproducto.idProducto', '=', 'producto.id')->select('producto.nombre')->where('gerenteproducto.idUsuario', '=', $id)->get();
+		$usuarios = DB::table('users')->select('name')->where('id', '=', $id)->get();
+		$datos = array(
+			'usuarios' => $usuarios,
+			'productos' => $productos
+		);
+		return view('relacion.consultar')->with('datos',$datos);
+	}
+
 	public function store()
 	{
 		//
