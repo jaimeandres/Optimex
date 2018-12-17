@@ -7,15 +7,16 @@
     <div class="panel panel-default">
       <div class="panel-heading">Asociar</div>
         <div class="panel-body">
-          <form action="{{URL::to('/relacion/create')}}" method="GET" class="form-horizontal">
+          <form action="{{URL::to('/relacion/create')}}" method="POST" class="form-horizontal">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
                   <label class="control-label col-md-3">
                     Gerente
                   </label>
                   <div class="col-md-9">
-                    <select class="form-control" name="productoSelec">
-                      @foreach ($productos as $producto)
-                        <option value="{{$producto->id}}">{{$producto->nombre}}</option>
+                    <select class="form-control" name="usuarioSelec">
+                      @foreach ($datos["usuarios"] as $usuario)
+                        <option value="{{$usuario->id}}">{{$usuario->name}}</option>
                       @endforeach
                     </select>
                   </div>
@@ -26,7 +27,7 @@
                   </label>
                   <div class="col-md-9">
                     <select class="form-control" name="productoSelec">
-                      @foreach ($productos as $producto)
+                      @foreach ($datos["productos"] as $producto)
                         <option value="{{$producto->id}}">{{$producto->nombre}}</option>
                       @endforeach
                     </select>

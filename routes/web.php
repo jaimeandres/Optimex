@@ -19,6 +19,7 @@ Route::group(['middleware' => ['auth','no-cache']], function () {
   Route::resource('usuarios', 'UsuarioController');
   Route::resource('productos', 'ProductoController');
   Route::resource('relacion', 'RelacionController');
+  Route::post('/relacion/create', 'RelacionController@store_relacion');
 });
 Auth::routes();
 

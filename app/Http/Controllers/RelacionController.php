@@ -27,13 +27,38 @@ class RelacionController extends Controller
 
 	public function create()
 	{
+		$usuarios = DB::table('users')->where('rol', '=', '1')->get();
 		$productos = DB::table('producto')->where('estado', '=', '0')->get();
-		return view('relacion.create')->with('productos',$productos);
+		$datos = array(
+			'usuarios' => $usuarios,
+			'productos' => $productos
+		);
+		return view('relacion.create')->with('datos',$datos);
 	}
 
-	public function store($id)
+	public function store_relacion()
+	{
+		$relacion = new Relacion();
+		$relacion->idUsuario = Input::get('usuarioSelec');
+		$relacion->idProducto = Input::get('productoSelec');
+		$idProducto = Input::get('productoSelec');
+		$url = "/relacion/create";		
+		$update = DB::table('producto')->where('id', $idProducto)->update(['estado' => Input::get('estado')]);
+		if($update){
+			if($relacion->save()){
+				return redirect($url)->with('mensaje', 'Ingreso exitoso');
+			}else{
+				return redirect($url)->with('warning', 'Ingreso fallido');
+			}
+		}else{
+			return redirect($url)->with('warning', 'Ingreso fallido');
+		}
+	}
+
+	public function store()
 	{
 		//
+		
 	}
 
 	public function show()
