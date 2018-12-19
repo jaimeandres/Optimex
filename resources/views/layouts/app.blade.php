@@ -13,7 +13,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" >
+
+    @yield('head')
 </head>
 <body oncontextmenu="return false" onkeydown="return true">
     <div id="app">
@@ -47,6 +51,17 @@
                                         <li><a href="{{URL::to('/usuarios')}}">Usuarios</a></li>
                                         <li><a href="{{URL::to('/productos')}}">Productos</a></li>
                                         <li><a href="{{URL::to('/relacion')}}">Relacionar</a></li>
+                                    </ul>
+                                </li>
+                            @endif
+                            @if(Auth::user()->rol == 99 || Auth::user()->rol == 2)
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administrativos <span class="caret"></a>
+                                    <ul class="dropdown-menu" role="menu">                                  
+                                        <!--li><a href="{{URL::to('/inventario')}}">Ingreso Inventarios</a></li-->
+                                        <li><a href="{{URL::to('/file')}}">Ingreso Inventarios</a></li>
+                                        <!--li><a href="{{URL::to('/productos')}}">Productos</a></li>
+                                        <li><a href="{{URL::to('/relacion')}}">Relacionar</a></li-->
                                     </ul>
                                 </li>
                             @endif
@@ -88,7 +103,12 @@
         @yield('content')
     </div>
 
-    <!-- Scripts -->
+    <!-- Scripts >
     <script src="{{ asset('js/app.js') }}"></script>
+    <!--@yield('js')-->
+    <!-- Scripts -->
+ <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    @yield('scripts')
 </body>
 </html>

@@ -13,17 +13,22 @@ class AdministrativoController extends Controller
 
     public function index()
 	{
-		//
+		return view('inventario.upload');
 	}
 
 	public function create()
 	{
-		return view('usuario.create');
+		//
 	}
 
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		$path = public_path().'/uploads/';
+            $files = $request->file('file');
+            foreach($files as $file){
+                $fileName = $file->getClientOriginalName();
+                $file->move($path, $fileName);
+            }
 	}
 
 	public function show()
