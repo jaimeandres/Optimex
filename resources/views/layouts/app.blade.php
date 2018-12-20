@@ -15,7 +15,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" >
+    <!--link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet"-->
 
     @yield('head')
 </head>

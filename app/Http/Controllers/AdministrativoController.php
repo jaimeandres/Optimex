@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
+use Request;
+use Response;
 
 class AdministrativoController extends Controller
 {
@@ -23,7 +26,7 @@ class AdministrativoController extends Controller
 
 	public function store(Request $request)
 	{
-		$path = public_path().'/uploads/';
+		$path = url('/uploads/');
             $files = $request->file('file');
             foreach($files as $file){
                 $fileName = $file->getClientOriginalName();
