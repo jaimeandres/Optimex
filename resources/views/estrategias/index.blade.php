@@ -5,11 +5,7 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <div class="panel panel-default">
-    @foreach($datos["usuarios"] as $usuario)
-      <div class="panel-heading h-60">Productos de {{ $usuario->name }}
-    @endforeach 
-        <br>
-        <a class="link_" href="{{URL::to('/relacion')}}"><button class="btn-add" style="float:right">Regresar</button></a><br>
+      <div class="panel-heading h-60">Sus Productos
         <div class="panel-body">
           @if (Session::has('mensaje'))
             <div class="alert alert-success">{{Session::get('mensaje', '')}}</div>
@@ -18,12 +14,23 @@
             <div class="alert alert-warning">{{Session::get('warning', '')}}</div>
           @endif
             <table class="table table-bordered">
+              <col width="50%">
+              <col width="25%">
+              <col width="25%">
               <thead>
                 <th>Nombre</th>
+                <th>Estrategia fija</th>
+                <th>Estrategia variable</th>
               </thead>
               @foreach($datos["productos"] as $producto)
                 <tr>
-                  <td>{{ $producto->nombre }}</td>                  
+                  <td>{{ $producto->nombre }}</td>
+                  <td>
+                    <a href="{{URL::to('/estrategia').'/'. $producto->id.'/editfija'}}"><span>Ingresar</span></a>
+                  </td>
+                  <td>
+                    <a href="{{URL::to('/estrategia').'/'. $producto->id.'/edit'}}"><span>Ingresar</span></a>
+                  </td>
                 </tr>
               @endforeach
             </table>

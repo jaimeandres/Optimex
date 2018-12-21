@@ -46,7 +46,7 @@
                             <li><a href="{{URL::to('/inicio')}}">Inicio</a></li>
                             @if(Auth::user()->rol == 99)
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Gestión <span class="caret"></a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Gestión<span class="caret"></a>
                                     <ul class="dropdown-menu" role="menu">                                  
                                         <li><a href="{{URL::to('/usuarios')}}">Usuarios</a></li>
                                         <li><a href="{{URL::to('/productos')}}">Productos</a></li>
@@ -56,12 +56,19 @@
                             @endif
                             @if(Auth::user()->rol == 99 || Auth::user()->rol == 2)
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administrativos <span class="caret"></a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administrativos<span class="caret"></a>
                                     <ul class="dropdown-menu" role="menu">                                  
                                         <!--li><a href="{{URL::to('/inventario')}}">Ingreso Inventarios</a></li-->
                                         <li><a href="{{URL::to('/file')}}">Ingreso Inventarios</a></li>
-                                        <!--li><a href="{{URL::to('/productos')}}">Productos</a></li>
-                                        <li><a href="{{URL::to('/relacion')}}">Relacionar</a></li-->
+                                        <li><a href="{{URL::to('/historico')}}">Ver Historicos</a></li>
+                                    </ul>
+                                </li>
+                            @endif
+                            @if(Auth::user()->rol == 99 || Auth::user()->rol == 1)
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Gerentes de Producto<span class="caret"></a>
+                                    <ul class="dropdown-menu" role="menu">                                  
+                                        <li><a href="{{URL::to('/estrategia')}}">Ingreso de Estrategías</a></li>
                                     </ul>
                                 </li>
                             @endif

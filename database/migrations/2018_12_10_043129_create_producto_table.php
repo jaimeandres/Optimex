@@ -16,8 +16,9 @@ class CreateProductoTable extends Migration
         Schema::create('producto', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->integer('stock');
-            $table->integer('estado');
+            $table->integer('stock')->default(0);
+            $table->integer('estado')->default(0);
+            $table->date('fechaCaducidad');
             $table->timestamps();
         });
     }

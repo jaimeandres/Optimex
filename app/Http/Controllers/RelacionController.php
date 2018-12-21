@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Relacion;
 use App\User;
 use App\Producto;
+use App\Estrategia;
 use Auth;
 use DB;
 use Input;
@@ -41,11 +42,13 @@ class RelacionController extends Controller
 		$relacion = new Relacion();
 		$relacion->idUsuario = Input::get('usuarioSelec');
 		$relacion->idProducto = Input::get('productoSelec');
+		$estrategia = new Estrategia();
+		$estrategia->idProducto = Input::get('productoSelec');
 		$idProducto = Input::get('productoSelec');
 		$url = "/relacion/create";		
 		$update = DB::table('producto')->where('id', $idProducto)->update(['estado' => Input::get('estado')]);
 		if($update){
-			if($relacion->save()){
+			if($relacion->save() && $estrategia->save()){
 				return redirect($url)->with('mensaje', 'Ingreso exitoso');
 			}else{
 				return redirect($url)->with('warning', 'Ingreso fallido');
