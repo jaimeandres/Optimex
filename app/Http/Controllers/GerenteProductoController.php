@@ -48,8 +48,6 @@ class GerenteProductoController extends Controller
 	public function edit($id)
 	{
 		$estrategias = DB::table('estrategia')->where('idProducto', '=', $id)->get();
-		$cobertura= 0;
-		$sobrante= 0;
 		$datos = array(
 			'estrategias' => $estrategias,
 			'productos' => $id,
@@ -62,8 +60,6 @@ class GerenteProductoController extends Controller
 	public function editfija($id)
 	{
 		$estrategias = DB::table('estrategia')->where('idProducto', '=', $id)->get();
-		$cobertura= 0;
-		$sobrante= 0;
 		$datos = array(
 			'estrategias' => $estrategias,
 			'productos' => $id,
@@ -75,15 +71,18 @@ class GerenteProductoController extends Controller
 
 	public function calculo($id)
 	{
-		$estrategias = DB::table('estrategia')->where('idProducto', '=', $id)->get();
+		$total =DB::table('producto')->select('stock')->where('id', '=', $id)->get();
+		$estrategia = DB::table('estrategia')->where('idProducto', '=', $id)->get();
 		$caducidad =DB::table('producto')->select('producto.cobertura')->where('id', '=', $id)->get();
-		var_dump($caducidad['cobertura']);
+		$vida = $caducidad[0]->cobertura -3;
+		$promedio = round((($estrategia[0]->enero+$estrategia[0]->febrero+$estrategia[0]->marzo+$estrategia[0]->abril+$estrategia[0]->mayo+$estrategia[0]->junio+$estrategia[0]->julio+$estrategia[0]->agosto+$estrategia[0]->septiembre+$estrategia[0]->octubre+$estrategia[0]->noviembre+$estrategia[0]->diciembre) / 12), 0);		
+		$restantes= $total[0]->stock - ($promedio*$vida);
+		var_dump($restantes);
 		exit();
-		$cobertura= (int)$caducidad;
-		
+		$cobertura=0;
 		$sobrante= 0;
 		$datos = array(
-			'estrategias' => $estrategias,
+			'estrategias' => $estrategia,
 			'productos' => $id,
 			'cobertura' => $cobertura,
 			'sobrante' => $sobrante
@@ -113,10 +112,8 @@ class GerenteProductoController extends Controller
 		$estrategia->diciembre = Input::get('diciembre');
 
 
-		$promedio = (($estrategia->enero+$estrategia->febrero+$estrategia->marzo+$estrategia->abril+$estrategia->mayo+$estrategia->junio+$estrategia->julio+$estrategia->agosto+$estrategia->septiembre+$estrategia->octubre+$estrategia->noviembre+$estrategia->diciembre) / 12);
-		$promedio = round($promedio, 0);
-		var_dump($vida);
-		exit();
+		
+		
 
 
 		$url = "estrategia/".$id."/edit";
