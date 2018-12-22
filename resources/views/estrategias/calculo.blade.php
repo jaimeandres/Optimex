@@ -7,7 +7,6 @@
     <div class="panel panel-default">
       <div class="panel-heading">Calculos en base a su Estrategia</div>
         <div class="panel-body">
-
         <form action="{{URL::to('/estrategia').'/'. $datos['productos'].'/calculo'}}" method="POST" class="form-horizontal">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">           
           <div class="form-group">
@@ -25,6 +24,13 @@
             <div class="col-md-9">
               <input type="text" readonly="readonly" name="sobrante" value="{{$datos['sobrante']}}" class="form-control" required>
             </div>
+          </div>
+          <br>
+          <br>
+          <div class="form-group">
+            <label class="control-label col-md-9 col-md-offset-3">
+              Los valores mostrados son referenciales y aproximados
+            </label>
           </div>
         </form>
         </div>

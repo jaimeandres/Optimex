@@ -50,9 +50,7 @@ class GerenteProductoController extends Controller
 		$estrategias = DB::table('estrategia')->where('idProducto', '=', $id)->get();
 		$datos = array(
 			'estrategias' => $estrategias,
-			'productos' => $id,
-			'cobertura' => $cobertura,
-			'sobrante' => $sobrante
+			'productos' => $id
 		);
 		return view('estrategias.edit')->with('datos',$datos);
 	}
@@ -62,25 +60,49 @@ class GerenteProductoController extends Controller
 		$estrategias = DB::table('estrategia')->where('idProducto', '=', $id)->get();
 		$datos = array(
 			'estrategias' => $estrategias,
-			'productos' => $id,
-			'cobertura' => $cobertura,
-			'sobrante' => $sobrante
+			'productos' => $id
 		);
 		return view('estrategias.editfija')->with('datos',$datos);
 	}
 
 	public function calculo($id)
 	{
+		$cobertura = 0;
+		$sobrante = 0;
 		$total =DB::table('producto')->select('stock')->where('id', '=', $id)->get();
 		$estrategia = DB::table('estrategia')->where('idProducto', '=', $id)->get();
 		$caducidad =DB::table('producto')->select('producto.cobertura')->where('id', '=', $id)->get();
 		$vida = $caducidad[0]->cobertura -3;
-		$promedio = round((($estrategia[0]->enero+$estrategia[0]->febrero+$estrategia[0]->marzo+$estrategia[0]->abril+$estrategia[0]->mayo+$estrategia[0]->junio+$estrategia[0]->julio+$estrategia[0]->agosto+$estrategia[0]->septiembre+$estrategia[0]->octubre+$estrategia[0]->noviembre+$estrategia[0]->diciembre) / 12), 0);		
+		$planeado = $estrategia[0]->enero+$estrategia[0]->febrero+$estrategia[0]->marzo+$estrategia[0]->abril+$estrategia[0]->mayo+$estrategia[0]->junio+$estrategia[0]->julio+$estrategia[0]->agosto+$estrategia[0]->septiembre+$estrategia[0]->octubre+$estrategia[0]->noviembre+$estrategia[0]->diciembre;
+		$promedio =	round(($planeado/12), 0);
+		$restante= $total[0]->stock - $planeado;
+		$restante_temp = $restante;
+		if ($restante_temp > 0) {
+			if ($vida > 12) {
+				$i = 0;
+				$vida = $vida -12;
+				while ($restante_temp >= $promedio) {
+					$restante_temp =  $restante_temp - $promedio;
+					$i = $i + 1;
+					if ($i >= $vida) {
+						$restante_temp = 0;
+					}
+				}
+				$cobertura = 12 + $i;
+				$sobrante = round((($restante - ($promedio * $i)) / $total[0]->stock)*100, 0);
+			}else{
+				$cobertura = $vida;
+				$sobrante = round((($total[0]->stock - ($promedio * $vida)) / $total[0]->stock)*100, 0);
+			}
+		}else{
+
+		}
+		
+
+
+		/*var_dump($sobrante);
+		exit();*/
 		$restantes= $total[0]->stock - ($promedio*$vida);
-		var_dump($restantes);
-		exit();
-		$cobertura=0;
-		$sobrante= 0;
 		$datos = array(
 			'estrategias' => $estrategia,
 			'productos' => $id,

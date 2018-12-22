@@ -8,7 +8,7 @@
       <div class="panel-heading">Ingrese la cantidad de su Estrategia</div>
         <div class="panel-body">
 
-        <form action="{{URL::to('/estrategia').'/'. $datos['productos'].'/consu'}}" method="POST" class="form-horizontal">
+        <form action="{{URL::to('/estrategia').'/'. $datos['productos'].'/editfija'}}" method="POST" class="form-horizontal">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <div class="form-group">
             <label class="control-label col-md-3">
@@ -22,7 +22,7 @@
           </div>
           <div class="form-group">
             <div class="col-md-9 col-md-offset-3">
-              <input type="submit" name="Guardar" value="Calcular" class="btn btn-primary" >
+              <input type="submit" name="Guardar" value="Ingresar" class="btn btn-primary" >
             </div>
           </div>
         </form>

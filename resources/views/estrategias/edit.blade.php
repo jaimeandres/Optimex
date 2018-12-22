@@ -110,7 +110,7 @@
         @endforeach            
           <div class="form-group">
             <div class="col-md-9 col-md-offset-3">
-              <input type="submit" name="Guardar" value="Calcular" class="btn btn-primary" >
+              <input type="submit" name="Guardar" value="Ingresar" class="btn btn-primary" >
             </div>
           </div>
         </form>
