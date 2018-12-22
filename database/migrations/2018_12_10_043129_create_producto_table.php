@@ -18,7 +18,8 @@ class CreateProductoTable extends Migration
             $table->string('nombre');
             $table->integer('stock')->default(0);
             $table->integer('estado')->default(0);
-            $table->date('fechaCaducidad');
+            $table->date('fechaCaducidad')->default('2019-12-06');
+            $table->integer('cobertura')->default(0);
             $table->timestamps();
         });
     }

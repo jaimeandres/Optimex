@@ -15,8 +15,8 @@ class Historicos extends Migration
     {
         Schema::create('historicos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idProducto')->unsigned();
-            $table->integer('idUsuario')->unsigned();
+            $table->integer('idProducto');
+            $table->integer('idUsuario');
             $table->integer('enero')->default(0);
             $table->integer('febrero')->default(0);
             $table->integer('marzo')->default(0);
