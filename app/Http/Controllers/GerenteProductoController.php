@@ -14,7 +14,7 @@ class GerenteProductoController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth'); 
     }
 
     public function index()
@@ -48,9 +48,13 @@ class GerenteProductoController extends Controller
 	public function edit($id)
 	{
 		$estrategias = DB::table('estrategia')->where('idProducto', '=', $id)->get();
+		$cobertura= 0;
+		$sobrante= 0;
 		$datos = array(
 			'estrategias' => $estrategias,
-			'productos' => $id
+			'productos' => $id,
+			'cobertura' => $cobertura,
+			'sobrante' => $sobrante
 		);
 		return view('estrategias.edit')->with('datos',$datos);
 	}
@@ -58,11 +62,33 @@ class GerenteProductoController extends Controller
 	public function editfija($id)
 	{
 		$estrategias = DB::table('estrategia')->where('idProducto', '=', $id)->get();
+		$cobertura= 0;
+		$sobrante= 0;
 		$datos = array(
 			'estrategias' => $estrategias,
-			'productos' => $id
+			'productos' => $id,
+			'cobertura' => $cobertura,
+			'sobrante' => $sobrante
 		);
 		return view('estrategias.editfija')->with('datos',$datos);
+	}
+
+	public function calculo($id)
+	{
+		$estrategias = DB::table('estrategia')->where('idProducto', '=', $id)->get();
+		$caducidad =DB::table('producto')->select('producto.cobertura')->where('id', '=', $id)->get();
+		var_dump($caducidad['cobertura']);
+		exit();
+		$cobertura= (int)$caducidad;
+		
+		$sobrante= 0;
+		$datos = array(
+			'estrategias' => $estrategias,
+			'productos' => $id,
+			'cobertura' => $cobertura,
+			'sobrante' => $sobrante
+		);
+		return view('estrategias.calculo')->with('datos',$datos);
 	}
 
 	public function update($id)
@@ -85,6 +111,14 @@ class GerenteProductoController extends Controller
 		$estrategia->octubre = Input::get('octubre');
 		$estrategia->noviembre = Input::get('noviembre');
 		$estrategia->diciembre = Input::get('diciembre');
+
+
+		$promedio = (($estrategia->enero+$estrategia->febrero+$estrategia->marzo+$estrategia->abril+$estrategia->mayo+$estrategia->junio+$estrategia->julio+$estrategia->agosto+$estrategia->septiembre+$estrategia->octubre+$estrategia->noviembre+$estrategia->diciembre) / 12);
+		$promedio = round($promedio, 0);
+		var_dump($vida);
+		exit();
+
+
 		$url = "estrategia/".$id."/edit";
 		if($estrategia->save()){
 			return redirect($url)->with('mensaje', 'Actualización exitosa');

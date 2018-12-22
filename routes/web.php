@@ -28,6 +28,7 @@ Route::group(['middleware' => ['auth','no-cache']], function () {
   Route::get('/estrategia/{id}/editfija', 'GerenteProductoController@editfija');
   Route::post('/estrategia/{id}/edit', 'GerenteProductoController@update_estrategia');
   Route::post('/estrategia/{id}/editfija', 'GerenteProductoController@update_fija');
+  Route::get('/estrategia/{id}/calculo', 'GerenteProductoController@calculo');
 });
 Auth::routes();
 

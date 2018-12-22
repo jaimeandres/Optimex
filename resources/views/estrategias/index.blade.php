@@ -14,13 +14,15 @@
             <div class="alert alert-warning">{{Session::get('warning', '')}}</div>
           @endif
             <table class="table table-bordered">
-              <col width="50%">
+              <col width="25%">
+              <col width="25%">
               <col width="25%">
               <col width="25%">
               <thead>
                 <th>Nombre</th>
                 <th>Estrategia fija</th>
                 <th>Estrategia variable</th>
+                <th>Calcular</th>
               </thead>
               @foreach($datos["productos"] as $producto)
                 <tr>
@@ -30,6 +32,9 @@
                   </td>
                   <td>
                     <a href="{{URL::to('/estrategia').'/'. $producto->id.'/edit'}}"><span>Ingresar</span></a>
+                  </td>
+                  <td>
+                    <a href="{{URL::to('/estrategia').'/'. $producto->id.'/calculo'}}"><span>Calcular</span></a>
                   </td>
                 </tr>
               @endforeach
