@@ -19,10 +19,10 @@
           </div>
           <div class="form-group">
             <label class="control-label col-md-3">
-              Porcentaje sobrante al final de tiempo de vida:
+              Porcentaje sobrante al final:
             </label>
             <div class="col-md-9">
-              <input type="text" readonly="readonly" name="sobrante" value="{{$datos['sobrante']}}" class="form-control" required>
+              <input type="text" readonly="readonly" name="sobrante" value="{{$datos['sobrante']}} %" class="form-control" required>
             </div>
           </div>
           <br>

@@ -78,7 +78,7 @@ class GerenteProductoController extends Controller
 		$restante= $total[0]->stock - $planeado;
 		$restante_temp = $restante;
 		if ($vida > 12) {
-			if ($restante_temp >= 0) {
+			if ($restante_temp > 0) {
 				$i = 0;
 				$vida = $vida -12;
 				while ($restante_temp >= $promedio) {
@@ -95,12 +95,14 @@ class GerenteProductoController extends Controller
 				$sobrante = round((($total[0]->stock - ($promedio * $cobertura)) / $total[0]->stock)*100, 0);
 			}
 		}else{
-			$cobertura = $vida;
-			$sobrante = round((($total[0]->stock - ($promedio * $vida)) / $total[0]->stock)*100, 0);
+			if ($restante_temp > 0) {
+				$cobertura = $vida;
+				$sobrante = round((($total[0]->stock - ($promedio * $vida)) / $total[0]->stock)*100, 0);
+			}else{
+				$cobertura = floor(($total[0]->stock / $promedio));
+				$sobrante = round((($total[0]->stock - ($promedio * $cobertura)) / $total[0]->stock)*100, 0);
+			}			
 		}
-		
-
-
 		/*var_dump($sobrante);
 		exit();*/
 		$datos = array(
