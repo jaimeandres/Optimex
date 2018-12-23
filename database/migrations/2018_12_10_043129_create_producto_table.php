@@ -16,10 +16,10 @@ class CreateProductoTable extends Migration
         Schema::create('producto', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->integer('stock')->default(0);
-            $table->integer('estado')->default(0);
+            $table->integer('stock')->default(0)->unsigned();
+            $table->integer('estado')->default(0)->unsigned();
             $table->date('fechaCaducidad')->default('2019-12-06');
-            $table->integer('cobertura')->default(0);
+            $table->integer('cobertura')->default(0)->unsigned();
             $table->timestamps();
         });
     }
