@@ -114,6 +114,7 @@
             </div>
           </div>
         </form>
+        <a class="link_" href="{{URL::to('/estrategia')}}"><button class="btn-add" style="float:right">Regresar</button></a><br>
         </div>
       </div>
     </div>

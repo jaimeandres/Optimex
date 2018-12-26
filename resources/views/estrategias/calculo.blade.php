@@ -26,13 +26,13 @@
             </div>
           </div>
           <br>
-          <br>
           <div class="form-group">
             <label class="control-label col-md-9 col-md-offset-3">
               Los valores mostrados son referenciales y aproximados
             </label>
           </div>
         </form>
+        <a class="link_" href="{{URL::to('/estrategia')}}"><button class="btn-add" style="float:right">Regresar</button></a><br>
         </div>
       </div>
     </div>

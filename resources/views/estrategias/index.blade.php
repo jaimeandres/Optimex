@@ -24,7 +24,7 @@
                 <th>Estrategia variable</th>
                 <th>Calcular</th>
               </thead>
-              @foreach($datos["productos"] as $producto)
+              @foreach($productos as $producto)
                 <tr>
                   <td>{{ $producto->nombre }}</td>
                   <td>

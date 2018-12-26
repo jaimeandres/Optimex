@@ -39,14 +39,19 @@ class RelacionController extends Controller
 
 	public function store_relacion()
 	{
+		$idProducto = Input::get('productoSelec');
+		$url = "/relacion";
+		
+		if ($idProducto == NULL) {
+			return redirect($url)->with('warning', 'No existe producto a relacionar');
+		}
 		$relacion = new Relacion();
 		$relacion->idUsuario = Input::get('usuarioSelec');
 		$relacion->idProducto = Input::get('productoSelec');
 		$estrategia = new Estrategia();
 		$estrategia->idProducto = Input::get('productoSelec');
-		$idProducto = Input::get('productoSelec');
-		$url = "/relacion/create";		
 		$update = DB::table('producto')->where('id', $idProducto)->update(['estado' => Input::get('estado')]);
+		
 		if($update){
 			if($relacion->save() && $estrategia->save()){
 				return redirect($url)->with('mensaje', 'Ingreso exitoso');

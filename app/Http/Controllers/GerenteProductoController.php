@@ -20,18 +20,20 @@ class GerenteProductoController extends Controller
     public function index()
 	{
 		$id= Auth::user()->id;
-		$productos =DB::table('gerenteproducto')->join('producto', 'gerenteproducto.idProducto', '=', 'producto.id')->select('producto.nombre', 'producto.id')->where('gerenteproducto.idUsuario', '=', $id)->get();
-		$usuarios = DB::table('users')->select('name')->where('id', '=', $id)->get();
-		$datos = array(
-			'usuarios' => $usuarios,
-			'productos' => $productos
-		);
-		return view('estrategias.index')->with('datos',$datos);
+		if (Auth::user()->rol == 99) {
+			$productos =DB::table('gerenteproducto')->join('producto', 'gerenteproducto.idProducto', '=', 'producto.id')->select('producto.nombre', 'producto.id')->get();
+		}else{
+			$productos =DB::table('gerenteproducto')->join('producto', 'gerenteproducto.idProducto', '=', 'producto.id')->select('producto.nombre', 'producto.id')->where('gerenteproducto.idUsuario', '=', $id)->get();
+		}
+		
+
+
+		return view('estrategias.index')->with('productos',$productos);
 	}
 
 	public function create()
 	{
-		return view('usuario.create');
+		//
 	}
 
 	public function store()
@@ -77,36 +79,38 @@ class GerenteProductoController extends Controller
 		$promedio =	round(($planeado/12), 0);
 		$restante= $total[0]->stock - $planeado;
 		$restante_temp = $restante;
-		if ($vida > 12) {
-			if ($restante_temp > 0) {
-				$i = 0;
-				$vida = $vida -12;
-				while ($restante_temp >= $promedio) {
-					$restante_temp =  $restante_temp - $promedio;
-					$i = $i + 1;
-					if ($i >= $vida) {
-						$restante_temp = 0;
+		if ($planeado == 0) {
+			$cobertura = $vida;
+			$sobrante = 100;
+		}else {
+			if ($vida > 12) {
+				if ($restante_temp > 0) {
+					$i = 0;
+					$vida = $vida -12;
+					while ($restante_temp >= $promedio) {
+						$restante_temp =  $restante_temp - $promedio;
+						$i = $i + 1;
+						if ($i >= $vida) {
+							$restante_temp = 0;
+						}
 					}
+					$cobertura = 12 + $i;
+					$sobrante = round((($restante - ($promedio * $i)) / $total[0]->stock)*100, 0);
+				}else{
+					$cobertura = floor(($total[0]->stock / $promedio));
+					$sobrante = round((($total[0]->stock - ($promedio * $cobertura)) / $total[0]->stock)*100, 0);
 				}
-				$cobertura = 12 + $i;
-				$sobrante = round((($restante - ($promedio * $i)) / $total[0]->stock)*100, 0);
 			}else{
-				$cobertura = floor(($total[0]->stock / $promedio));
-				$sobrante = round((($total[0]->stock - ($promedio * $cobertura)) / $total[0]->stock)*100, 0);
+				if ($restante_temp > 0) {
+					$cobertura = $vida;
+					$sobrante = round((($total[0]->stock - ($promedio * $vida)) / $total[0]->stock)*100, 0);
+				}else{
+					$cobertura = floor(($total[0]->stock / $promedio));
+					$sobrante = round((($total[0]->stock - ($promedio * $cobertura)) / $total[0]->stock)*100, 0);
+				}			
 			}
-		}else{
-			if ($restante_temp > 0) {
-				$cobertura = $vida;
-				$sobrante = round((($total[0]->stock - ($promedio * $vida)) / $total[0]->stock)*100, 0);
-			}else{
-				$cobertura = floor(($total[0]->stock / $promedio));
-				$sobrante = round((($total[0]->stock - ($promedio * $cobertura)) / $total[0]->stock)*100, 0);
-			}			
-		}
-		/*var_dump($sobrante);
-		exit();*/
+		}	
 		$datos = array(
-			'estrategias' => $estrategia,
 			'productos' => $id,
 			'cobertura' => $cobertura,
 			'sobrante' => $sobrante
@@ -121,19 +125,19 @@ class GerenteProductoController extends Controller
 
 	public function update_estrategia($id)
 	{
-		$url = "estrategia/".$id."/edit";
-		if(Input::get('enero') < 0){return redirect($url);}
-		if(Input::get('febrero') < 0){return redirect($url);}
-		if(Input::get('marzo') < 0){return redirect($url);}
-		if(Input::get('abril') < 0){return redirect($url);}
-		if(Input::get('mayo') < 0){return redirect($url);}
-		if(Input::get('junio') < 0){return redirect($url);}
-		if(Input::get('julio') < 0){return redirect($url);}
-		if(Input::get('agosto') < 0){return redirect($url);}
-		if(Input::get('septiembre') < 0){return redirect($url);}
-		if(Input::get('octubre') < 0){return redirect($url);}
-		if(Input::get('noviembre') < 0){return redirect($url);}
-		if(Input::get('diciembre') < 0){return redirect($url);}
+		$url = "estrategia";
+		if(Input::get('enero') < 0){return redirect($url)->with('warning', 'Número/s invalido');}
+		if(Input::get('febrero') < 0){return redirect($url)->with('warning', 'Número/s invalido');}
+		if(Input::get('marzo') < 0){return redirect($url)->with('warning', 'Número/s invalido');}
+		if(Input::get('abril') < 0){return redirect($url)->with('warning', 'Número/s invalido');}
+		if(Input::get('mayo') < 0){return redirect($url)->with('warning', 'Número/s invalido');}
+		if(Input::get('junio') < 0){return redirect($url)->with('warning', 'Número/s invalido');}
+		if(Input::get('julio') < 0){return redirect($url)->with('warning', 'Número/s invalido');}
+		if(Input::get('agosto') < 0){return redirect($url)->with('warning', 'Número/s invalido');}
+		if(Input::get('septiembre') < 0){return redirect($url)->with('warning', 'Número/s invalido');}
+		if(Input::get('octubre') < 0){return redirect($url)->with('warning', 'Número/s invalido');}
+		if(Input::get('noviembre') < 0){return redirect($url)->with('warning', 'Número/s invalido');}
+		if(Input::get('diciembre') < 0){return redirect($url)->with('warning', 'Número/s invalido');}
 		$estrategia = Estrategia::where('idProducto',$id)->get()[0];
 		$estrategia->enero = Input::get('enero');
 		$estrategia->febrero = Input::get('febrero');
@@ -147,6 +151,7 @@ class GerenteProductoController extends Controller
 		$estrategia->octubre = Input::get('octubre');
 		$estrategia->noviembre = Input::get('noviembre');
 		$estrategia->diciembre = Input::get('diciembre');
+		$url = "estrategia/".$id."/edit";
 		
 		if($estrategia->save()){
 			return redirect($url)->with('mensaje', 'Actualización exitosa');
@@ -158,7 +163,6 @@ class GerenteProductoController extends Controller
 	public function update_fija($id)
 	{
 		$url = "estrategia";
-		
 		if(Input::get('fija') < 0){
 			return redirect($url)->with('warning', 'Número invalido');
 		}
@@ -175,6 +179,7 @@ class GerenteProductoController extends Controller
 		$estrategia->octubre = Input::get('fija');
 		$estrategia->noviembre = Input::get('fija');
 		$estrategia->diciembre = Input::get('fija');
+		
 		if($estrategia->save()){
 			return redirect($url)->with('mensaje', 'Actualización exitosa');
 		}else{
@@ -187,5 +192,5 @@ class GerenteProductoController extends Controller
 		//
 	}
 
-	//SELECT TIMESTAMPDIFF(MONTH, curdate(), '2019-05-05') funcion para saber meses de distribucion fecha final - inicial
+	//SELECT TIMESTAMPDIFF(MONTH, curdate(), '2019-05-05') funcion para saber meses de distribucion
 }
