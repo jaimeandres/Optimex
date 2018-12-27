@@ -8,7 +8,7 @@
       <div class="panel-heading h-60">Asociación entre Gerentes y Productos
         <br>
         <h5 align="center">Gerentes de Producto</h5>
-        <a class="link_" href="{{URL::to('/relacion/create')}}"><button class="btn-add" style="float:right">Asociar</button></a><br>
+        <a class="link_" href="{{URL::to('/relacion/create')}}"><button class="btn btn-primary" style="float:right">Asociar</button></a><br>
         <div class="panel-body">
           @if (Session::has('mensaje'))
             <div class="alert alert-success">{{Session::get('mensaje', '')}}</div>

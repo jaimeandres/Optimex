@@ -40,7 +40,7 @@
                   </div>
                 </div>
             </form>
-            <a class="link_" href="{{URL::to('/relacion')}}"><button class="btn-add" style="float:right">Regresar</button></a><br>
+            <a class="link_" href="{{URL::to('/relacion')}}"><button class="btn btn-primary" style="float:right">Regresar</button></a><br>
         </div>
       </div>
     </div>

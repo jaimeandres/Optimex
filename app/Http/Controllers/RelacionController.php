@@ -67,8 +67,8 @@ class RelacionController extends Controller
 	{
 		/*SELECT gp.idUsuario, gp.idProducto, p.id, p.nombre FROM gerenteproducto as gp, producto as p WHERE gp.idProducto=p.id and gp.idUsuario=2;*/
 
-		$productos =DB::table('gerenteproducto')->join('producto', 'gerenteproducto.idProducto', '=', 'producto.id')->select('producto.nombre')->where('gerenteproducto.idUsuario', '=', $id)->get();
-		$usuarios = DB::table('users')->select('name')->where('id', '=', $id)->get();
+		$productos =DB::table('gerenteproducto')->join('producto', 'gerenteproducto.idProducto', '=', 'producto.id')->select('producto.id','producto.nombre')->where('gerenteproducto.idUsuario', '=', $id)->get();
+		$usuarios = DB::table('users')->select('id','name')->where('id', '=', $id)->get();
 		$datos = array(
 			'usuarios' => $usuarios,
 			'productos' => $productos
@@ -98,8 +98,20 @@ class RelacionController extends Controller
 		//
 	}
 
-	public function destroy($id)
+	public function quitar($id)
 	{
-		//
+
+		$relacion = Relacion::where('idProducto',$id)->get()[0];
+		$update = DB::table('producto')->where('id', $id)->update(['estado' => 0]);
+		$url = "/relacion";
+		if($update){
+			if($relacion->delete()){
+				return redirect($url)->with('mensaje', 'Se ha quitado el producto');
+			}else{
+				return redirect($url)->with('warning', 'No se ha podido quitar el producto');
+			}
+		}else{
+			return redirect($url)->with('warning', 'No se ha podido quitar el producto');
+		}
 	}
 }
