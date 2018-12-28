@@ -55,6 +55,7 @@
                                 <select name="rol" class="form-control">
                                     <option value="1">Gerente de Producto</option>
                                     <option value="2">Administrativo</option>
+                                    <option value="99">Administrador</option>
                                 </select>
                             </div>
                         </div>

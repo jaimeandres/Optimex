@@ -49,16 +49,30 @@ class ProductoController extends Controller
 
 	public function edit($id)
 	{
-		//
+		$productos = Producto::where('id',$id)->get()[0];
+		return view('producto.edit')->with('productos',$productos);
 	}
 
-	public function update($id)
+	public function updates($id)
 	{
-		//
+		$producto = Producto::where('id', $id)->get()[0];
+		$producto->nombre = Input::get('nombre');
+		$url = "productos";
+		if($producto->save()){
+			return redirect($url)->with('mensaje', 'Actualizacion exitosa');
+		}else{
+			return redirect($url)->with('warning', 'No se ha actualizado');
+		}
 	}
 
-	public function destroy($id)
+	public function eliminar($id)
 	{
-		//
+		$producto = Producto::where('id',$id)->get()[0];
+		$url = "/productos";
+		if($producto->delete()){
+			return redirect($url)->with('mensaje', 'Se ha eliminado el producto');
+		}else{
+			return redirect($url)->with('warning', 'No se ha podido eliminar el producto');
+		}
 	}
 }

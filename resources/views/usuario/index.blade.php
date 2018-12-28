@@ -13,20 +13,28 @@
           @if (Session::has('warning'))
             <div class="alert alert-warning">{{Session::get('warning', '')}}</div>
           @endif
-          	<table class="table table-bordered">
-				<col width="50%">
-              	<col width="50%">
-				<thead>
-					<th>Nombre</th>
-					<th>Correo</th>
-				</thead>
-				@foreach($usuarios as $usuario)
-					<tr>
-						<td>{{ $usuario->name }}</td>
-						<td>{{ $usuario->email }}</td>
-					</tr>
-				@endforeach
-			</table>
+          <table class="table table-bordered">
+    				<col width="40%">
+            <col width="40%">
+            <col width="20%">
+    				<thead>
+    					<th>Nombre</th>
+    					<th>Correo</th>
+              <th>Acción</th>
+    				</thead>
+    				@foreach($usuarios as $usuario)
+    					<tr>
+    						<td>{{ $usuario->name }}</td>
+    						<td>{{ $usuario->email }}</td>
+                <td><a href="{{URL::to('/usuarios').'/'. $usuario->id.'/edit'}}"><span>Editar</span></a>
+                    <!--form class="form-group pull-right" action="{{URL::to('/usuarios').'/'. $usuario->id.'/eliminar'}}" method="GET">
+                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                      <input type="hidden" name="_method" value="DELETE">
+                      <button type="submit" class="from-control"><i class="fa fa-trash-o" style="font-size:16px"></i></button>
+                </form--></td>
+    					</tr>
+    				@endforeach
+    			</table>
         </div>
       </div>
     </div>

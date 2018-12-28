@@ -22,14 +22,14 @@ class RelacionController extends Controller
 
     public function index()
 	{
-		$usuarios = DB::table('users')->where('rol', '=', '1')->get();
+		$usuarios = DB::table('users')->where('rol', '=', '1')->orderBy('name', 'asc')->get();
 		return view('relacion.index')->with('usuarios',$usuarios);
 	}
 
 	public function create()
 	{
-		$usuarios = DB::table('users')->where('rol', '=', '1')->get();
-		$productos = DB::table('producto')->where('estado', '=', '0')->get();
+		$usuarios = DB::table('users')->where('rol', '=', '1')->orderBy('name', 'asc')->get();
+		$productos = DB::table('producto')->where('estado', '=', '0')->orderBy('nombre', 'asc')->get();
 		$datos = array(
 			'usuarios' => $usuarios,
 			'productos' => $productos
@@ -48,18 +48,24 @@ class RelacionController extends Controller
 		$relacion = new Relacion();
 		$relacion->idUsuario = Input::get('usuarioSelec');
 		$relacion->idProducto = Input::get('productoSelec');
-		$estrategia = new Estrategia();
+		$estrategia = new Estrategia(); //revisar se esta ingresando doble cuando se actualiza la relacion
 		$estrategia->idProducto = Input::get('productoSelec');
+		$producto =DB::table('estrategia')->select('id')->where('idProducto', '=', $idProducto)->get();
 		$update = DB::table('producto')->where('id', $idProducto)->update(['estado' => Input::get('estado')]);
 		
 		if($update){
+			if ($producto) {
+				if($relacion->save()){
+					return redirect($url)->with('mensaje', 'Asociación exitosa');
+				}
+			}
 			if($relacion->save() && $estrategia->save()){
-				return redirect($url)->with('mensaje', 'Ingreso exitoso');
+				return redirect($url)->with('mensaje', 'Asociación exitosa');
 			}else{
-				return redirect($url)->with('warning', 'Ingreso fallido');
+				return redirect($url)->with('warning', 'Asociación fallida');
 			}
 		}else{
-			return redirect($url)->with('warning', 'Ingreso fallido');
+			return redirect($url)->with('warning', 'Asociación fallida');
 		}
 	}
 
@@ -67,7 +73,7 @@ class RelacionController extends Controller
 	{
 		/*SELECT gp.idUsuario, gp.idProducto, p.id, p.nombre FROM gerenteproducto as gp, producto as p WHERE gp.idProducto=p.id and gp.idUsuario=2;*/
 
-		$productos =DB::table('gerenteproducto')->join('producto', 'gerenteproducto.idProducto', '=', 'producto.id')->select('producto.id','producto.nombre')->where('gerenteproducto.idUsuario', '=', $id)->get();
+		$productos =DB::table('gerenteproducto')->join('producto', 'gerenteproducto.idProducto', '=', 'producto.id')->select('producto.id','producto.nombre')->where('gerenteproducto.idUsuario', '=', $id)->orderBy('producto.nombre', 'asc')->get();
 		$usuarios = DB::table('users')->select('id','name')->where('id', '=', $id)->get();
 		$datos = array(
 			'usuarios' => $usuarios,
@@ -100,7 +106,6 @@ class RelacionController extends Controller
 
 	public function quitar($id)
 	{
-
 		$relacion = Relacion::where('idProducto',$id)->get()[0];
 		$update = DB::table('producto')->where('id', $id)->update(['estado' => 0]);
 		$url = "/relacion";
