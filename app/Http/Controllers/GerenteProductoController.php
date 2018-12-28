@@ -25,9 +25,8 @@ class GerenteProductoController extends Controller
 		}else{
 			$productos =DB::table('gerenteproducto')->join('producto', 'gerenteproducto.idProducto', '=', 'producto.id')->select('producto.nombre', 'producto.id')->where('gerenteproducto.idUsuario', '=', $id)->orderBy('producto.nombre', 'asc')->get();
 		}
-		
-
-
+		$sql = 'Update producto JOIN (Select id, TIMESTAMPDIFF(MONTH, curdate(), p.fechaCaducidad) as meses FROM producto p) prod ON producto.id = prod.id SET producto.cobertura = prod.meses';
+		DB::statement($sql);
 		return view('estrategias.index')->with('productos',$productos);
 	}
 

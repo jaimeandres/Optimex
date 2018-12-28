@@ -48,13 +48,13 @@ class RelacionController extends Controller
 		$relacion = new Relacion();
 		$relacion->idUsuario = Input::get('usuarioSelec');
 		$relacion->idProducto = Input::get('productoSelec');
-		$estrategia = new Estrategia(); //revisar se esta ingresando doble cuando se actualiza la relacion
+		$estrategia = new Estrategia();
 		$estrategia->idProducto = Input::get('productoSelec');
-		$producto =DB::table('estrategia')->select('id')->where('idProducto', '=', $idProducto)->get();
+		$producto =DB::table('estrategia')->select('idProducto')->where('idProducto', '=', $idProducto)->get();
 		$update = DB::table('producto')->where('id', $idProducto)->update(['estado' => Input::get('estado')]);
 		
 		if($update){
-			if ($producto) {
+			if (!$producto->isEmpty()) {
 				if($relacion->save()){
 					return redirect($url)->with('mensaje', 'Asociación exitosa');
 				}
