@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
 
 use App\User;
 use Auth;
@@ -49,27 +48,17 @@ class UsuarioController extends Controller
 	public function updates($id)
 	{
 		$usuario = User::where('id', $id)->get()[0];
-
-		$this->validate(request(), [
-            'name' => 'string|max:255',
-            'email' => 'string|email|max:255|unique:users',
-            'password' => 'string|min:6|confirmed',
-            'rol' => 'required'
-        ]);
-
-        
-        $usuario->name = request(Input::get('name'));
-        $usuario->email = request(Input::get('email'));
+		$usuario->name = Input::get('name');
+        $usuario->email = Input::get('email');
         $contraseña = Input::get('password');
-        var_dump($contraseña);
-        exit();
-		if ($contraseña != NULL) {$usuario->password = bcrypt(request($contraseña));}
-        //$usuario->password = bcrypt(request(Input::get('password')));
-
-        $usuario->rol = request(Input::get('rol'));
+        if ($contraseña != NULL) {
+        	$this->validate(request(), ['password' => 'string|min:6']);
+        	$usuario->password = bcrypt(request($contraseña));
+        }
+        $usuario->rol = Input::get('rol');
 		$url = "usuarios";
 		
-		if($usuario->save()){
+		if($usuario->update()){
 			return redirect($url)->with('mensaje', 'Actualizacion exitosa');
 		}else{
 			return redirect($url)->with('warning', 'No se ha actualizado');

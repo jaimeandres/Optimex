@@ -27,11 +27,11 @@
     						<td>{{ $usuario->name }}</td>
     						<td>{{ $usuario->email }}</td>
                 <td><a href="{{URL::to('/usuarios').'/'. $usuario->id.'/edit'}}"><span>Editar</span></a>
-                    <!--form class="form-group pull-right" action="{{URL::to('/usuarios').'/'. $usuario->id.'/eliminar'}}" method="GET">
+                    <form class="form-group pull-right" action="{{URL::to('/usuarios').'/'. $usuario->id.'/eliminar'}}" method="GET">
                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
                       <input type="hidden" name="_method" value="DELETE">
                       <button type="submit" class="from-control"><i class="fa fa-trash-o" style="font-size:16px"></i></button>
-                </form--></td>
+                </form></td>
     					</tr>
     				@endforeach
     			</table>
