@@ -43,10 +43,10 @@ class HistoricoController extends Controller
 
     public function store()
     {
-        /*$sql = 'Insert Into historicos Select * FROM estrategia;';
+        $sql = 'Insert Into historicos(idProducto, enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre) Select idProducto, enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre FROM estrategia';
         DB::statement($sql);
         $url = "/historico";
-        return redirect($url)->with('mensaje', 'Historico generado');*/
+        return redirect($url)->with('mensaje', 'Historico generado');
     }
 
     public function show($id)
@@ -69,3 +69,5 @@ class HistoricoController extends Controller
         //
     }
 }
+
+//SELECT `idProducto`, (`enero`+ `febrero`+ `marzo`+ `abril`+ `mayo`+ `junio`+ `julio`+ `agosto`+ `septiembre`+ `octubre`+ `noviembre`+ `diciembre`) as total FROM `estrategia`

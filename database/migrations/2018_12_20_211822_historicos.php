@@ -28,7 +28,7 @@ class Historicos extends Migration
             $table->integer('octubre')->default(0)->unsigned();
             $table->integer('noviembre')->default(0)->unsigned();
             $table->integer('diciembre')->default(0)->unsigned();  
-            $table->integer('año')->default(2018)->unsigned();
+            $table->year('año')->default(2018)->unsigned();
             $table->timestamps();
         });
     }
