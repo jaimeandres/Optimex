@@ -70,4 +70,4 @@ class HistoricoController extends Controller
     }
 }
 
-//SELECT `idProducto`, (`enero`+ `febrero`+ `marzo`+ `abril`+ `mayo`+ `junio`+ `julio`+ `agosto`+ `septiembre`+ `octubre`+ `noviembre`+ `diciembre`) as total FROM `estrategia`
+//SELECT `idProducto`, (`enero`+ `febrero`+ `marzo`+ `abril`+ `mayo`+ `junio`+ `julio`+ `agosto`+ `septiembre`+ `octubre`+ `noviembre`+ `diciembre`) as total FROM `estrategia` ORDER BY `estrategia`.`idProducto` ASC

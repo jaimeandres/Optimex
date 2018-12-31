@@ -75,40 +75,44 @@ class GerenteProductoController extends Controller
 		$caducidad =DB::table('producto')->select('producto.cobertura')->where('id', '=', $id)->get();
 		$vida = $caducidad[0]->cobertura -3;
 		$planeado = $estrategia[0]->enero+$estrategia[0]->febrero+$estrategia[0]->marzo+$estrategia[0]->abril+$estrategia[0]->mayo+$estrategia[0]->junio+$estrategia[0]->julio+$estrategia[0]->agosto+$estrategia[0]->septiembre+$estrategia[0]->octubre+$estrategia[0]->noviembre+$estrategia[0]->diciembre;
-		$promedio =	round(($planeado/12), 0);
+		$promedio =	($planeado/12);
 		$restante= $total[0]->stock - $planeado;
 		$restante_temp = $restante;
-		if ($planeado == 0) {
-			$cobertura = $vida;
-			$sobrante = 100;
-		}else {
-			if ($vida > 12) {
-				if ($restante_temp > 0) {
-					$i = 0;
-					$vida = $vida -12;
-					while ($restante_temp >= $promedio) {
-						$restante_temp =  $restante_temp - $promedio;
-						$i = $i + 1;
-						if ($i >= $vida) {
-							$restante_temp = 0;
+		if ($total[0]->stock != 0) {
+			if ($planeado == 0) {
+				$cobertura = $vida;
+				$sobrante = 100;
+			}else {
+				if ($vida > 12) {
+					if ($restante_temp > 0) {
+						$i = 0;
+						$vida = $vida -12;
+						while ($restante_temp >= $promedio) {
+							$restante_temp =  $restante_temp - $promedio;
+							$i = $i + 1;
+							if ($i >= $vida) {
+								$restante_temp = 0;
+							}
 						}
+						$cobertura = 12 + $i;
+						$sobrante = (($restante - ($promedio * $i)) / $total[0]->stock)*100;
+					}else{
+						$cobertura = ($total[0]->stock / $promedio);
+						$sobrante = (($total[0]->stock - ($promedio * $cobertura)) / $total[0]->stock)*100;
 					}
-					$cobertura = 12 + $i;
-					$sobrante = round((($restante - ($promedio * $i)) / $total[0]->stock)*100, 0);
 				}else{
-					$cobertura = floor(($total[0]->stock / $promedio));
-					$sobrante = round((($total[0]->stock - ($promedio * $cobertura)) / $total[0]->stock)*100, 0);
+					if ($restante_temp > 0) {
+						$cobertura = $vida;
+						$sobrante = (($total[0]->stock - ($promedio * $vida)) / $total[0]->stock)*100;
+					}else{
+						$cobertura = ($total[0]->stock / $promedio);
+						$sobrante = (($total[0]->stock - ($promedio * $cobertura)) / $total[0]->stock)*100;
+					}			
 				}
-			}else{
-				if ($restante_temp > 0) {
-					$cobertura = $vida;
-					$sobrante = round((($total[0]->stock - ($promedio * $vida)) / $total[0]->stock)*100, 0);
-				}else{
-					$cobertura = floor(($total[0]->stock / $promedio));
-					$sobrante = round((($total[0]->stock - ($promedio * $cobertura)) / $total[0]->stock)*100, 0);
-				}			
 			}
-		}	
+		}
+		$cobertura = floor($cobertura);
+		$sobrante = round($sobrante, 0);
 		$datos = array(
 			'productos' => $id,
 			'cobertura' => $cobertura,
