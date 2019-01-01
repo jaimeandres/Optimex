@@ -16,7 +16,7 @@ class AdministrativoController extends Controller
 
     public function index()
 	{
-		return view('inventario.upload');
+		return view('inventario.create');
 	}
 
 	public function create()

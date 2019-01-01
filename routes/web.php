@@ -12,15 +12,13 @@
 */
 
 Route::get('/', 'WelcomeController@index');
-//Route::get('/inicio', 'HomeController@index');
 
 Route::group(['middleware' => ['auth','no-cache']], function () {
   Route::get('inicio', 'HomeController@index');
   Route::resource('usuarios', 'UsuarioController');
   Route::resource('productos', 'ProductoController');
   Route::resource('relacion', 'RelacionController');
-  /*Route::resource('inventario', 'AdministrativoController');*/
-  Route::resource('file', 'FileController');
+  Route::resource('inventario', 'AdministrativoController');
   Route::resource('estrategia', 'GerenteProductoController');
   Route::resource('historico', 'HistoricoController');
   
