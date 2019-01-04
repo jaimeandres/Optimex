@@ -24,21 +24,6 @@ class UsuarioController extends Controller
 		return view('usuario.index')->with('usuarios',$usuarios);
 	}
 
-	public function create()
-	{
-		
-	}
-
-	public function store()
-	{
-		//
-	}
-
-	public function show()
-	{
-		//		
-	}
-
 	public function edit($id)
 	{
 		$usuarios = User::where('id',$id)->get()[0];

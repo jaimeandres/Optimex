@@ -30,22 +30,6 @@ class GerenteProductoController extends Controller
 		return view('estrategias.index')->with('productos',$productos);
 	}
 
-	public function create()
-	{
-		//
-	}
-
-	public function store()
-	{
-		//
-	}
-
-	public function show()
-	{
-		//
-		
-	}
-
 	public function edit($id)
 	{
 		$estrategias = DB::table('estrategia')->where('idProducto', '=', $id)->get();
@@ -121,11 +105,6 @@ class GerenteProductoController extends Controller
 		return view('estrategias.calculo')->with('datos',$datos);
 	}
 
-	public function update($id)
-	{
-		//
-	}
-
 	public function update_estrategia($id)
 	{
 		$url = "estrategia";
@@ -188,11 +167,6 @@ class GerenteProductoController extends Controller
 		}else{
 			return redirect($url)->with('warning', 'No se ha podido actualizar');
 		}
-	}
-
-	public function destroy($id)
-	{
-		//
 	}
 
 	//SELECT TIMESTAMPDIFF(MONTH, curdate(), '2019-05-05') funcion para saber meses de distribucion

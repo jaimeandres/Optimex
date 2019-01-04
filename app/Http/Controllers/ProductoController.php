@@ -41,12 +41,6 @@ class ProductoController extends Controller
 		}
 	}
 
-	public function show()
-	{
-		//
-		
-	}
-
 	public function edit($id)
 	{
 		$productos = Producto::where('id',$id)->get()[0];

@@ -82,28 +82,6 @@ class RelacionController extends Controller
 		return view('relacion.consultar')->with('datos',$datos);
 	}
 
-	public function store()
-	{
-		//
-		
-	}
-
-	public function show()
-	{
-		//
-		
-	}
-
-	public function edit($id)
-	{
-		//
-	}
-
-	public function update($id)
-	{
-		//
-	}
-
 	public function quitar($id)
 	{
 		$relacion = Relacion::where('idProducto',$id)->get()[0];
