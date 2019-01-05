@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Producto;
 use App\Estrategia;
+use App\Historicos;
 use Auth;
 use DB;
 use Input;
@@ -25,12 +26,12 @@ class HistoricoController extends Controller
         }else{
             $productos =DB::table('gerenteproducto')->join('producto', 'gerenteproducto.idProducto', '=', 'producto.id')->select('producto.nombre', 'producto.id')->where('gerenteproducto.idUsuario', '=', $id)->orderBy('producto.nombre', 'asc')->get();
         }
-        $año1 = DB::select('Select (YEAR(curdate()) - 2) as año1');
-        $año2 = DB::select('Select (YEAR(curdate()) - 1) as año2');
+        $año1 = DB::select('Select (YEAR(curdate()) - 3) as año1');
+        $año2 = DB::select('Select (YEAR(curdate()) - 2) as año2');
         $datos = array(
             'productos' => $productos,
             'año1' => $año1,
-            'año2' => $año2,
+            'año2' => $año2
         );
         return view('historicos.index')->with('datos',$datos);
     }
@@ -49,24 +50,21 @@ class HistoricoController extends Controller
         return redirect($url)->with('mensaje', 'Historico generado');
     }
 
-    public function show($id)
+    public function mostrar($id)
     {
-        //        
+        $historicos = DB::select('Select h.*, p.nombre FROM historicos as h, producto as p WHERE h.idProducto=p.id AND h.idProducto=?', [$id]);
+        return view('historicos.show')->with('historicos',$historicos);
     }
 
-    public function edit($id)
+    public function sleec()
     {
-        //
-    }   
-
-    public function update(Request $request, $id)
-    {
-        //
-    }    
-
-    public function destroy($id)
-    {
-        //
+        $año1 = DB::select('Select (YEAR(curdate()) - 3) as año1');
+        $año2 = DB::select('Select (YEAR(curdate()) - 2) as año2');
+        $datos = array(
+            'año1' => $año1,
+            'año2' => $año2,
+        );
+        return view('historicos.seleccionar')->with('datos',$datos);
     }
 }
 

@@ -36,6 +36,8 @@ Route::group(['middleware' => ['auth','no-cache']], function () {
   Route::post('/estrategia/{id}/edit', 'GerenteProductoController@update_estrategia');
   Route::post('/estrategia/{id}/editfija', 'GerenteProductoController@update_fija');
   Route::get('/estrategia/{id}/calculo', 'GerenteProductoController@calculo');
+
+  Route::get('/historico/{id}/show', 'HistoricoController@mostrar');
 });
 Auth::routes();
 

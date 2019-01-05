@@ -49,6 +49,7 @@
         <div class="container">
             <div class="content">
                 <div class="title">Optimex </div>
+                <div class="quote"><h4>Para Optimizar la distribución de sus Muestras Médicas utilize Optimex</h4></div>
                 <div class="goToHome">
                         <a href="{{URL::to('/inicio')}}">
                         <button type="button" class="btn btn-primary">Iniciar</button>

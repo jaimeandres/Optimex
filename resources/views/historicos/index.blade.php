@@ -15,22 +15,17 @@
             <div class="alert alert-warning">{{Session::get('warning', '')}}</div>
           @endif
             <table class="table table-bordered">
-              <col width="40%">
-              <col width="30%">
-              <col width="30%">
+              <col width="50%">
+              <col width="50%">
               <thead>
                 <th>Productos</th>
-                <th>Año {{$datos["año1"][0]->año1}}</th>
-                <th>Año {{$datos["año2"][0]->año2}}</th>
+                <th>Accion</th>
               </thead>
               @foreach($datos["productos"] as $producto)
                 <tr>
                   <td>{{ $producto->nombre }}</td>
                   <td>
-                    <a href="{{URL::to('/estrategia').'/'. $producto->id.'/editfija'}}"><span>Ver Estrategia</span></a>
-                  </td>
-                  <td>
-                    <a href="{{URL::to('/estrategia').'/'. $producto->id.'/edit'}}"><span>Ver Estrategia</span></a>
+                    <a href="{{URL::to('/historico').'/'. $producto->id.'/show'}}"><span>Ver Estrategia</span></a>
                   </td>
                 </tr>
               @endforeach
