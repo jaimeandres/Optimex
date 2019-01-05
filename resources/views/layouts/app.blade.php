@@ -17,7 +17,9 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!--link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet"-->
+
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
     @yield('head')
 </head>
@@ -54,10 +56,9 @@
                             
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administrativos<span class="caret"></a>
-                                    <ul class="dropdown-menu" role="menu">                                  
-                                        <!--li><a href="{{URL::to('/inventario')}}">Ingreso Inventarios</a></li-->
+                                    <ul class="dropdown-menu" role="menu">
                                         @if(Auth::user()->rol == 99 || Auth::user()->rol == 2)
-                                            <li><a href="{{URL::to('/file')}}">Ingreso Inventarios</a></li>
+                                            <li><a href="{{URL::to('/inventario')}}">Ingreso Inventarios</a></li>
                                         @endif
                                         <li><a href="{{URL::to('/historico')}}">Ver Historicos</a></li>
                                     </ul>

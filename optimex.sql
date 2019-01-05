@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-12-2018 a las 05:41:03
+-- Tiempo de generación: 05-01-2019 a las 17:03:17
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.0.32
 
@@ -112,7 +112,7 @@ CREATE TABLE `historicos` (
   `octubre` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `noviembre` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `diciembre` int(11) UNSIGNED NOT NULL DEFAULT '0',
-  `año` year(4) DEFAULT '2017',
+  `año` year(4) DEFAULT '2018',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -229,10 +229,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `rol`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Jaime Berrazueta', 'jaime.berrazueta@udla.edu.ec', '$2y$10$mFT5QB2vgorBGe.Lv9qgBeNJ2TF2VBvfEqhQAPoYZXo63HjN4Kjy.', 99, 'E75fKFNaruN6gfcvMCJTkp6aSSlu4QT0qLU9J6JWZbehHF1tRKy3BL0NXfGb', '2018-12-10 09:28:44', '2018-12-10 09:28:44'),
-(2, 'Gerente Producto 1', 'gerente.producto@empresa.com', '$2y$10$S6JllzGQtHUlmZ9eZ/Ukz.praPBSPKHAE6gttUr9DUAhTm21FMGQm', 1, 'U5p8qNHFp2YM870BCkldR2DRcgqWug5Z38uXYy6FieqdlII5mBvfijGXo2CJ', '2018-12-11 01:30:46', '2018-12-11 01:30:46'),
+(1, 'Jaime Berrazueta', 'jaime.berrazueta@udla.edu.ec', '$2y$10$mFT5QB2vgorBGe.Lv9qgBeNJ2TF2VBvfEqhQAPoYZXo63HjN4Kjy.', 99, 'fA9fTwIGgBtwWdU9KsUgSV0irL4JNXntW1kiu7w5BG0MuDKUOW4vJ5k8LZFo', '2018-12-10 09:28:44', '2018-12-10 09:28:44'),
+(2, 'Gerente Producto 1', 'gerente.producto@empresa.com', '$2y$10$S6JllzGQtHUlmZ9eZ/Ukz.praPBSPKHAE6gttUr9DUAhTm21FMGQm', 1, 's3xtu4tJptyiJlSZ4kM7hx6dRImMeEbd44azIOifTFi6Qb6cmYTiawZf3vYd', '2018-12-11 01:30:46', '2018-12-11 01:30:46'),
 (3, 'Administrativo 1', 'administrativo@empresa.com', '$2y$10$lqzoIHYuLlm1OOQQJ1gajOih4HZEpkD3BeR36BaeOsebNcQ2t6uMK', 2, 'AyodHFeO74mCMw8TXVWLo9DpI34O9JZM8LsT9luVju3uM1DWAi9Fi1oiB2ly', '2018-12-11 01:31:29', '2018-12-11 01:31:29'),
-(4, 'Gerente Producto 2', 'gerente.producto1@empresa.com', '$2y$10$V/ikpML.lakBA9eGQ0TRE.px/aXY41sMvgER5j8FSRBG6SpcLJip2', 1, 'vVceBskFY6TdaTZZKQrYX0nx71T46La65xiIroLGhZBmS2iOr3od7tOldABV', '2018-12-11 10:01:15', '2018-12-11 10:01:15');
+(4, 'Gerente Producto 2', 'gerente.producto1@empresa.com', '$2y$10$V/ikpML.lakBA9eGQ0TRE.px/aXY41sMvgER5j8FSRBG6SpcLJip2', 1, 'VJ7KLmYDMN2kjtw8Sw8Dq4qaRyaffzvmCRlBy6YqvyB90p9D1MrmNlluddeZ', '2018-12-11 10:01:15', '2018-12-11 10:01:15');
 
 --
 -- Índices para tablas volcadas

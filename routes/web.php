@@ -17,11 +17,13 @@ Route::group(['middleware' => ['auth','no-cache']], function () {
   Route::get('inicio', 'HomeController@index');
   Route::resource('usuarios', 'UsuarioController');
   Route::resource('productos', 'ProductoController');
-  Route::resource('relacion', 'RelacionController');
-  Route::resource('inventario', 'AdministrativoController');
+  Route::resource('relacion', 'RelacionController');  
   Route::resource('estrategia', 'GerenteProductoController');
   Route::resource('historico', 'HistoricoController');
-  
+
+  Route::get('inventario', 'AdministrativoController@index')->name('index');
+  Route::post('import', 'AdministrativoController@import')->name('import');
+
   Route::post('/usuarios/{id}/edit', 'UsuarioController@updates');
   Route::get('/usuarios/{id}/eliminar', 'UsuarioController@eliminar');
 

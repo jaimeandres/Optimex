@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Producto;
 use Validator;
 use Response;
+use Session;
+use Excel;
+use File;
+
 
 class AdministrativoController extends Controller
 {
@@ -15,7 +21,7 @@ class AdministrativoController extends Controller
 
     public function index()
 	{
-		return view('inventario.create');
+		return view('inventario.cargar');
 	}
 
 	public function create()
@@ -23,40 +29,60 @@ class AdministrativoController extends Controller
 		//
 	}
 
+
+	public function import(Request $request){
+        //validate the xls file
+        $this->validate($request, array(
+            'file'      => 'required'
+        ));
+        
+ 
+        if($request->hasFile('file')){
+            $extension = File::extension($request->file->getClientOriginalName());
+            if ($extension == "xlsx" || $extension == "xls" || $extension == "csv") {
+
+                $path = $request->file->getRealPath();
+                $data = Excel::load($path, function($reader) {
+                })->get();
+                if(!empty($data) && $data->count()){
+  
+                    foreach ($data as $key => $value) {
+                        var_dump($value);
+       exit();
+        				for ($i=0; $i < count($value) ; $i++) { 
+        					$insert[] = [
+	                        'stock' => $value[$i]->stock,
+	                        //'fechaCaducidad' => $value->fechaCaducidad,
+	                        ];
+        				}
+                        var_dump($insert);
+        exit();
+                    }
+ 
+                    if(!empty($insert)){
+ 
+                        $insertData = DB::table('producto')->update($insert);
+                        if ($insertData) {
+                            Session::flash('success', 'Your Data has successfully imported');
+                        }else {                        
+                            Session::flash('error', 'Error inserting the data..');
+                            return back();
+                        }
+                    }
+                }
+ 
+                return back();
+ 
+            }else {
+                Session::flash('error', 'File is a '.$extension.' file.!! Please upload a valid xls/csv file..!!');
+                return back();
+            }
+        }
+    }
+
 	public function store(Request $request)
 	{
-		$path = url('/uploads/');
-            $files = $request->file('file');
-            foreach($files as $file){
-                $fileName = $file->getClientOriginalName();
-                $file->move($path, $fileName);
-            }
-
-
-
-
-        $input = Input::all();
- 
-        $rules = array(
-            'file' => 'image|max:3000',
-        );
- 
-        $validation = Validator::make($input, $rules);
- 
-        if ($validation->fails()) {
-            return Response::make($validation->errors->first(), 400);
-        }
- 
-        $destinationPath = 'uploads'; // upload path
-        $extension = Input::file('file')->getClientOriginalExtension(); // getting file extension
-        $fileName = rand(11111, 99999) . '.' . $extension; // renameing image
-        $upload_success = Input::file('file')->move($destinationPath, $fileName); // uploading file to given path
- 
-        if ($upload_success) {
-            return Response::json('success', 200);
-        } else {
-            return Response::json('error', 400);
-        }
+		//
 	}
 
 	public function show()
