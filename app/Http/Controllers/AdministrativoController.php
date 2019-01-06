@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Producto;
 use Validator;
-use Response;
-use Session;
-use Excel;
-use File;
+use Auth;
+use DB;
+use Input;
 
 
 class AdministrativoController extends Controller
@@ -21,88 +19,31 @@ class AdministrativoController extends Controller
 
     public function index()
 	{
-		return view('inventario.cargar');
-	}
-
-	public function create()
-	{
-		//
-	}
-
-
-	public function import(Request $request){
-        //validate the xls file
-        $this->validate($request, array(
-            'file'      => 'required'
-        ));
-        
- 
-        if($request->hasFile('file')){
-            $extension = File::extension($request->file->getClientOriginalName());
-            if ($extension == "xlsx" || $extension == "xls" || $extension == "csv") {
-
-                $path = $request->file->getRealPath();
-                $data = Excel::load($path, function($reader) {
-                })->get();
-                if(!empty($data) && $data->count()){
-  
-                    foreach ($data as $key => $value) {
-                        var_dump($value);
-       exit();
-        				for ($i=0; $i < count($value) ; $i++) { 
-        					$insert[] = [
-	                        'stock' => $value[$i]->stock,
-	                        //'fechaCaducidad' => $value->fechaCaducidad,
-	                        ];
-        				}
-                        var_dump($insert);
-        exit();
-                    }
- 
-                    if(!empty($insert)){
- 
-                        $insertData = DB::table('producto')->update($insert);
-                        if ($insertData) {
-                            Session::flash('success', 'Your Data has successfully imported');
-                        }else {                        
-                            Session::flash('error', 'Error inserting the data..');
-                            return back();
-                        }
-                    }
-                }
- 
-                return back();
- 
-            }else {
-                Session::flash('error', 'File is a '.$extension.' file.!! Please upload a valid xls/csv file..!!');
-                return back();
-            }
-        }
-    }
-
-	public function store(Request $request)
-	{
-		//
-	}
-
-	public function show()
-	{
-		//
-		
+		$productos =DB::table('producto')->select('producto.nombre', 'producto.id')->orderBy('producto.nombre', 'asc')->get();
+        $datos = array(
+            'productos' => $productos
+        );
+        return view('inventario.index')->with('datos',$datos);
 	}
 
 	public function edit($id)
 	{
-		//
+		$productos =DB::table('producto')->where('id', '=', $id)->get()[0];
+		return view('inventario.cargar')->with('productos',$productos);
 	}
 
-	public function update($id)
+	public function updates($id)
 	{
-		//
-	}
-
-	public function destroy($id)
-	{
-		//
+		$url = "inventario";
+		if(Input::get('stock') < 0){return redirect($url)->with('warning', 'Número/s invalido');}
+		$producto = Producto::where('id',$id)->get()[0];
+		$producto->stock = Input::get('stock');
+		$producto->fechaCaducidad = Input::get('caducidad');
+		
+		if($producto->save()){
+			return redirect($url)->with('mensaje', 'Actualización exitosa');
+		}else{
+			return redirect($url)->with('warning', 'No se ha podido actualizar');
+		}
 	}
 }

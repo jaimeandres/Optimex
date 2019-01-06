@@ -20,9 +20,8 @@ Route::group(['middleware' => ['auth','no-cache']], function () {
   Route::resource('relacion', 'RelacionController');  
   Route::resource('estrategia', 'GerenteProductoController');
   Route::resource('historico', 'HistoricoController');
-
-  Route::get('inventario', 'AdministrativoController@index')->name('index');
-  Route::post('import', 'AdministrativoController@import')->name('import');
+  Route::resource('inventario', 'AdministrativoController');
+  Route::post('/inventario/{id}/edit', 'AdministrativoController@updates');
 
   Route::post('/usuarios/{id}/edit', 'UsuarioController@updates');
   Route::get('/usuarios/{id}/eliminar', 'UsuarioController@eliminar');

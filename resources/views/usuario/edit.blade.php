@@ -52,7 +52,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">Nueva Contraseña</label>
                             <div class="col-md-6">
-                                <input type="password" class="form-control" name="password">
+                                <input type="password" class="form-control" name="password" value="{{ $usuarios->password }}">
                             </div>
                         </div>
 

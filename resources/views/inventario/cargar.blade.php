@@ -1,48 +1,43 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <h2 class="text-center">
-            Cargar tu Inventario de Productos
-        </h2>
- 
-        @if ( Session::has('success') )
-        <div class="alert alert-success alert-dismissible" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-            <span class="sr-only">Close</span>
-        </button>
-        <strong>{{ Session::get('success') }}</strong>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-heading">Inventario del {{$productos->nombre}}</div>
+        <div class="panel-body">
+
+        <form action="{{URL::to('/inventario').'/'. $productos->id.'/edit'}}" method="POST" class="form-horizontal">
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">          
+          <div class="form-group">
+            <label class="control-label col-md-3">
+              Cantidad
+            </label>
+            <div class="col-md-9">            
+              <input type="text" name="stock" value="{{$productos->stock}}" class="form-control" required>            
+            </div><br><br>            
+            <label class="control-label col-md-3">
+              Fecha Caducidad (A-M-D)
+            </label>
+            <div class="col-md-9">            
+              <input type="text" name="caducidad" value="{{$productos->fechaCaducidad}}" class="form-control" required>            
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-9 col-md-offset-3">
+              <input type="submit" name="Guardar" value="Actualizar" class="btn btn-primary" >
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-9 col-md-offset-3">
+              Los valores son los registrados actualmente
+            </label>
+          </div>
+        </form>
+        </div>
+      </div>
     </div>
-    @endif
- 
-    @if ( Session::has('error') )
-    <div class="alert alert-danger alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-            <span class="sr-only">Close</span>
-        </button>
-        <strong>{{ Session::get('error') }}</strong>
-    </div>
-    @endif
- 
-    @if (count($errors) > 0)
-    <div class="alert alert-danger">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-      <div>
-        @foreach ($errors->all() as $error)
-        <p>{{ $error }}</p>
-        @endforeach
-    </div>
-</div>
-@endif
- 
-<form action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
-    {{ csrf_field() }}
-    Eliga su archivo xls/csv : <input type="file" name="file" class="form-control">
- 
-    <input type="submit" class="btn btn-primary btn-lg" style="margin-top: 3%">
-</form>
- 
+  </div>
 </div>
 @endsection

@@ -136,9 +136,9 @@ class GerenteProductoController extends Controller
 		$url = "estrategia/".$id."/edit";
 		
 		if($estrategia->save()){
-			return redirect($url)->with('mensaje', 'Actualización exitosa');
+			return redirect($url)->with('mensaje', 'Estrategia ingresada exitosamente');
 		}else{
-			return redirect($url)->with('warning', 'No se ha podido actualizar');
+			return redirect($url)->with('warning', 'No se ha podido ingresar estrategia');
 		}
 	}
 
@@ -163,9 +163,9 @@ class GerenteProductoController extends Controller
 		$estrategia->diciembre = Input::get('fija');
 		
 		if($estrategia->save()){
-			return redirect($url)->with('mensaje', 'Actualización exitosa');
+			return redirect($url)->with('mensaje', 'Estrategia ingresada exitosamente');
 		}else{
-			return redirect($url)->with('warning', 'No se ha podido actualizar');
+			return redirect($url)->with('warning', 'No se ha podido ingresar estrategia');
 		}
 	}
 
