@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <div class="panel panel-default">
-      <div class="panel-heading h-60">Historicos de Distribuciones
+      <div class="panel-heading h-60">Estrategias de Productos 
         <div class="panel-body">
           @if (Session::has('mensaje'))
             <div class="alert alert-success">{{Session::get('mensaje', '')}}</div>

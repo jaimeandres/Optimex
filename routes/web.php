@@ -20,8 +20,7 @@ Route::group(['middleware' => ['auth','no-cache']], function () {
   Route::resource('relacion', 'RelacionController');  
   Route::resource('estrategia', 'GerenteProductoController');
   Route::resource('historico', 'HistoricoController');
-  Route::resource('inventario', 'AdministrativoController');
-  Route::post('/inventario/{id}/edit', 'AdministrativoController@updates');
+  Route::resource('inventario', 'AdministrativoController');  
 
   Route::post('/usuarios/{id}/edit', 'UsuarioController@updates');
   Route::get('/usuarios/{id}/eliminar', 'UsuarioController@eliminar');
@@ -40,6 +39,7 @@ Route::group(['middleware' => ['auth','no-cache']], function () {
 
   Route::get('/historico/{id}/show', 'HistoricoController@mostrar');
 
+  Route::post('/inventario/{id}/edit', 'AdministrativoController@updates');
   Route::get('/consolidado', 'AdministrativoController@total');
   Route::get('/consolidado/{id}/show', 'AdministrativoController@detalle');
 });

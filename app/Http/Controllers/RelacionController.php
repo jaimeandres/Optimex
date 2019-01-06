@@ -71,8 +71,6 @@ class RelacionController extends Controller
 
 	public function mostrar($id)
 	{
-		/*SELECT gp.idUsuario, gp.idProducto, p.id, p.nombre FROM gerenteproducto as gp, producto as p WHERE gp.idProducto=p.id and gp.idUsuario=2;*/
-
 		$productos =DB::table('gerenteproducto')->join('producto', 'gerenteproducto.idProducto', '=', 'producto.id')->select('producto.id','producto.nombre')->where('gerenteproducto.idUsuario', '=', $id)->orderBy('producto.nombre', 'asc')->get();
 		$usuarios = DB::table('users')->select('id','name')->where('id', '=', $id)->get();
 		$datos = array(

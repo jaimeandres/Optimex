@@ -25,7 +25,7 @@
                 <tr>
                   <td>{{ $producto->nombre }}</td>
                   <td>
-                    <a href="{{URL::to('/historico').'/'. $producto->id.'/show'}}"><span>Ver Estrategia</span></a>
+                    <a href="{{URL::to('/historico').'/'. $producto->id.'/show'}}"><span>Ver Historico</span></a>
                   </td>
                 </tr>
               @endforeach

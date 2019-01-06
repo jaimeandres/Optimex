@@ -35,11 +35,11 @@ class UsuarioController extends Controller
 		$usuario = User::where('id', $id)->get()[0];
 		$usuario->name = Input::get('name');
         $usuario->email = Input::get('email');
-        $contraseña = Input::get('password');
+        /*$contraseña = Input::get('password');
         if ($contraseña != NULL) {
         	$this->validate(request(), ['password' => 'string|min:6']);
         	$usuario->password = bcrypt(request($contraseña));
-        }
+        }*/
         $usuario->rol = Input::get('rol');
 		$url = "usuarios";
 		

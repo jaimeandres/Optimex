@@ -49,12 +49,12 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <!--div class="form-group">
                             <label class="col-md-4 control-label">Nueva Contraseña</label>
                             <div class="col-md-6">
-                                <input type="password" class="form-control" name="password" value="{{ $usuarios->password }}" required>
+                                <input type="password" class="form-control" name="password" required>
                             </div>
-                        </div>
+                        </div-->
 
                         <div class="form-group">
                             <label class="col-md-4 control-label">Rol</label>

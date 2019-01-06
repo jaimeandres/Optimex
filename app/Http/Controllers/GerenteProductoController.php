@@ -168,6 +168,4 @@ class GerenteProductoController extends Controller
 			return redirect($url)->with('warning', 'No se ha podido ingresar estrategia');
 		}
 	}
-
-	//SELECT TIMESTAMPDIFF(MONTH, curdate(), '2019-05-05') funcion para saber meses de distribucion
 }

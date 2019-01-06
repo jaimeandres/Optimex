@@ -60,5 +60,3 @@ class HistoricoController extends Controller
         return view('historicos.show')->with('historicos',$historicos);
     }
 }
-
-//SELECT `idProducto`, (`enero`+ `febrero`+ `marzo`+ `abril`+ `mayo`+ `junio`+ `julio`+ `agosto`+ `septiembre`+ `octubre`+ `noviembre`+ `diciembre`) as total FROM `estrategia` ORDER BY `estrategia`.`idProducto` ASC
