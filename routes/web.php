@@ -39,6 +39,9 @@ Route::group(['middleware' => ['auth','no-cache']], function () {
   Route::get('/estrategia/{id}/calculo', 'GerenteProductoController@calculo');
 
   Route::get('/historico/{id}/show', 'HistoricoController@mostrar');
+
+  Route::get('/consolidado', 'AdministrativoController@total');
+  Route::get('/consolidado/{id}/show', 'AdministrativoController@detalle');
 });
 Auth::routes();
 

@@ -59,6 +59,7 @@
                                     <ul class="dropdown-menu" role="menu">
                                         @if(Auth::user()->rol == 99 || Auth::user()->rol == 2)
                                             <li><a href="{{URL::to('/inventario')}}">Ingreso Inventarios</a></li>
+                                            <li><a href="{{URL::to('/consolidado')}}">Ver Estrategias</a></li>
                                         @endif
                                         <li><a href="{{URL::to('/historico')}}">Ver Historicos</a></li>
                                     </ul>

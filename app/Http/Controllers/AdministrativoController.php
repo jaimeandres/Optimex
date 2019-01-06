@@ -28,7 +28,7 @@ class AdministrativoController extends Controller
 
 	public function edit($id)
 	{
-		$productos =DB::table('producto')->where('id', '=', $id)->get()[0];
+		$productos = DB::table('producto')->where('id', '=', $id)->get()[0];
 		return view('inventario.cargar')->with('productos',$productos);
 	}
 
@@ -46,4 +46,24 @@ class AdministrativoController extends Controller
 			return redirect($url)->with('warning', 'No se ha podido actualizar');
 		}
 	}
+
+	public function total()
+    {
+        $total = DB::select('Select `idProducto`, (`enero`+ `febrero`+ `marzo`+ `abril`+ `mayo`+ `junio`+ `julio`+ `agosto`+ `septiembre`+ `octubre`+ `noviembre`+ `diciembre`) as total FROM `estrategia` ORDER BY `estrategia`.`idProducto` ASC');
+        $productos =DB::table('gerenteproducto')->join('producto', 'gerenteproducto.idProducto', '=', 'producto.id')->select('producto.id', 'producto.nombre')->orderBy('producto.id', 'asc')->get();
+
+        //var_dump($total);
+        //exit();
+        $datos = array(
+            'productos' => $productos,
+            'total' => $total
+        );
+        return view('consolidado.index')->with('datos',$datos);
+    }
+
+    public function detalle($id)
+    {
+        $estrategia =DB::table('estrategia')->where('idProducto', '=', $id)->get()[0];
+        return view('consolidado.show')->with('estrategia',$estrategia);
+    }
 }
