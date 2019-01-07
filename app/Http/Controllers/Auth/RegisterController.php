@@ -86,7 +86,7 @@ class RegisterController extends Controller
           );
       }
       $this->create($request->all());
-        return redirect($this->redirectPath());
+        return redirect($this->redirectPath())->with('mensaje', 'Usuario ingresado exitosamente');;
     }
 
     public function showRegistrationForm()

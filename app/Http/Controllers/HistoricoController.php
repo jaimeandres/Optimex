@@ -53,10 +53,14 @@ class HistoricoController extends Controller
     public function mostrar($id)
     {
         $historicos = DB::select('Select h.*, p.nombre FROM historicos as h, producto as p WHERE h.idProducto=p.id AND h.idProducto=? AND (h.año=(YEAR(curdate()) - 3) OR h.año=(YEAR(curdate()) - 2))', [$id]);
+        if (count($historicos) == 1) {
+            $url = "/historico";
+            return redirect($url)->with('warning', 'Historicos del producto insuficientes');
+        }
         if (count($historicos) < 2) {
             $url = "/historico";
             return redirect($url)->with('warning', 'No existen historicos del producto');
-        }
+        }        
         return view('historicos.show')->with('historicos',$historicos);
     }
 }
