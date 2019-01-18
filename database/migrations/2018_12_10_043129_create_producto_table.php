@@ -15,10 +15,10 @@ class CreateProductoTable extends Migration
     {
         Schema::create('producto', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
+            $table->string('nombre')->unique();
             $table->integer('stock')->default(0)->unsigned();
             $table->integer('estado')->default(0)->unsigned();
-            $table->date('fechaCaducidad')->default('2019-12-06');
+            $table->date('fechaCaducidad')->default('2039-12-06');
             $table->integer('cobertura')->default(0)->unsigned();
             $table->timestamps();
         });

@@ -15,7 +15,7 @@
               Nombre Producto
             </label>
             <div class="col-md-9">
-              <input type="text" name="nombre" value="{{$productos->nombre}}" class="form-control" required>
+              <input type="text" name="nombre" pattern="[A-Za-z0-9 ]+" value="{{$productos->nombre}}" class="form-control" required>
             </div>
           </div>
           <div class="form-group">

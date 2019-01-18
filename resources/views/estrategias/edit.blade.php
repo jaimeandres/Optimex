@@ -16,7 +16,7 @@
               Enero
             </label>
             <div class="col-md-9">
-              <input type="text" name="enero" value="{{$estrategia->enero}}" class="form-control" required>
+              <input type="text" name="enero" pattern="[0-9]+" value="{{$estrategia->enero}}" class="form-control" required>
             </div>
           </div>
           <div class="form-group">
@@ -24,7 +24,7 @@
               Febrero
             </label>
             <div class="col-md-9">
-              <input type="text" name="febrero" value="{{$estrategia->febrero}}" class="form-control" required>
+              <input type="text" name="febrero" pattern="[0-9]+" value="{{$estrategia->febrero}}" class="form-control" required>
             </div>
           </div>
           <div class="form-group">
@@ -32,7 +32,7 @@
               Marzo
             </label>
             <div class="col-md-9">
-              <input type="text" name="marzo" value="{{$estrategia->marzo}}" class="form-control" required>
+              <input type="text" name="marzo" pattern="[0-9]+" value="{{$estrategia->marzo}}" class="form-control" required>
             </div>
           </div>
           <div class="form-group">
@@ -40,7 +40,7 @@
               Abril
             </label>
             <div class="col-md-9">
-              <input type="text" name="abril" value="{{$estrategia->abril}}" class="form-control" required>
+              <input type="text" name="abril" pattern="[0-9]+" value="{{$estrategia->abril}}" class="form-control" required>
             </div>
           </div>
           <div class="form-group">
@@ -48,7 +48,7 @@
               Mayo
             </label>
             <div class="col-md-9">
-              <input type="text" name="mayo" value="{{$estrategia->mayo}}" class="form-control" required>
+              <input type="text" name="mayo" pattern="[0-9]+" value="{{$estrategia->mayo}}" class="form-control" required>
             </div>
           </div>
           <div class="form-group">
@@ -56,7 +56,7 @@
               Junio
             </label>
             <div class="col-md-9">
-              <input type="text" name="junio" value="{{$estrategia->junio}}" class="form-control" required>
+              <input type="text" name="junio" pattern="[0-9]+" value="{{$estrategia->junio}}" class="form-control" required>
             </div>
           </div>
           <div class="form-group">
@@ -64,7 +64,7 @@
               Julio
             </label>
             <div class="col-md-9">
-              <input type="text" name="julio" value="{{$estrategia->julio}}" class="form-control" required>
+              <input type="text" name="julio" pattern="[0-9]+" value="{{$estrategia->julio}}" class="form-control" required>
             </div>
           </div>
           <div class="form-group">
@@ -72,7 +72,7 @@
               Agosto
             </label>
             <div class="col-md-9">
-              <input type="text" name="agosto" value="{{$estrategia->agosto}}" class="form-control" required>
+              <input type="text" name="agosto" pattern="[0-9]+" value="{{$estrategia->agosto}}" class="form-control" required>
             </div>
           </div>
           <div class="form-group">
@@ -80,7 +80,7 @@
               Septiembre
             </label>
             <div class="col-md-9">
-              <input type="text" name="septiembre" value="{{$estrategia->septiembre}}" class="form-control" required>
+              <input type="text" name="septiembre" pattern="[0-9]+" value="{{$estrategia->septiembre}}" class="form-control" required>
             </div>
           </div>
           <div class="form-group">
@@ -88,7 +88,7 @@
               Octubre
             </label>
             <div class="col-md-9">
-              <input type="text" name="octubre" value="{{$estrategia->octubre}}" class="form-control" required>
+              <input type="text" name="octubre" pattern="[0-9]+" value="{{$estrategia->octubre}}" class="form-control" required>
             </div>
           </div>
           <div class="form-group">
@@ -96,7 +96,7 @@
               Noviembre
             </label>
             <div class="col-md-9">
-              <input type="text" name="noviembre" value="{{$estrategia->noviembre}}" class="form-control" required>
+              <input type="text" name="noviembre" pattern="[0-9]+" value="{{$estrategia->noviembre}}" class="form-control" required>
             </div>
           </div>
           <div class="form-group">
@@ -104,7 +104,7 @@
               Diciembre
             </label>
             <div class="col-md-9">
-              <input type="text" name="diciembre" value="{{$estrategia->diciembre}}" class="form-control" required>
+              <input type="text" name="diciembre" pattern="[0-9]+" value="{{$estrategia->diciembre}}" class="form-control" required>
             </div>
           </div>
         @endforeach            

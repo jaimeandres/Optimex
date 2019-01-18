@@ -15,7 +15,7 @@
               Cantidad
             </label>
             <div class="col-md-9">            
-              <input type="text" name="stock" value="{{$productos->stock}}" class="form-control" required>            
+              <input type="text" name="stock" pattern="[0-9]+" value="{{$productos->stock}}" class="form-control" required>            
             </div><br><br>            
             <label class="control-label col-md-3">
               Fecha Caducidad (A-M-D)

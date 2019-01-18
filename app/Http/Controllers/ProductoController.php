@@ -31,9 +31,13 @@ class ProductoController extends Controller
 
 	public function store()
 	{
-		$producto = new Producto();
-		$producto->nombre = Input::get('nombre');
 		$url = "/productos";
+		$producto = new Producto();		
+		$producto->nombre = Input::get('nombre');
+		if (Producto::where('nombre',$producto->nombre)->exists()) {
+			return redirect($url)->with('warning', 'Ya existe el producto');
+		}
+		
 		if($producto->save()){
 			return redirect($url)->with('mensaje', 'Ingreso exitoso');
 		}else{

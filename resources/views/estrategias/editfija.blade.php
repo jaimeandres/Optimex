@@ -16,7 +16,7 @@
             </label>
             <div class="col-md-9">
             @foreach($datos['estrategias'] as $estrategia)
-              <input type="text" name="fija" value="{{$estrategia->enero}}" class="form-control" required>
+              <input type="text" name="fija" pattern="[0-9]+" value="{{$estrategia->enero}}" class="form-control" required>
             @endforeach
             </div>
           </div>
