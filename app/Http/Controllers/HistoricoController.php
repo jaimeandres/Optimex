@@ -52,11 +52,8 @@ class HistoricoController extends Controller
 
     public function mostrar($id)
     {
-        $historicos = DB::select('Select h.*, p.nombre FROM historicos as h, producto as p WHERE h.idProducto=p.id AND h.idProducto=? AND (h.año=(YEAR(curdate()) - 3) OR h.año=(YEAR(curdate()) - 2))', [$id]);
-        /*$total = DB::select('Select `idProducto`, (`enero`+ `febrero`+ `marzo`+ `abril`+ `mayo`+ `junio`+ `julio`+ `agosto`+ `septiembre`+ `octubre`+ `noviembre`+ `diciembre`) as total FROM `estrategia` ORDER BY `estrategia`.`idProducto` ASC');
-        $productos =DB::table('gerenteproducto')->join('producto', 'gerenteproducto.idProducto', '=', 'producto.id')->select('producto.id', 'producto.nombre')->orderBy('producto.id', 'asc')->get();*/
-
-
+        $historicos = DB::select('Select h.*, p.nombre, (h.enero+ h.febrero+ h.marzo+ h.abril+ h.mayo+ h.junio+ h.julio+ h.agosto+ h.septiembre+ h.octubre+ h.noviembre+ h.diciembre) as total FROM historicos as h, producto as p WHERE h.idProducto=p.id AND h.idProducto=? AND (h.año=(YEAR(curdate()) - 3) OR h.año=(YEAR(curdate()) - 2))', [$id]);
+        
         if (count($historicos) == 1) {
             $url = "/historico";
             return redirect($url)->with('warning', 'Historicos del producto insuficientes');

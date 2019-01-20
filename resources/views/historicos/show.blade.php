@@ -81,6 +81,11 @@
                 <td>Diciembre</td>
                 <td>{{$historicos[0]->diciembre}}</td>
                 <td>{{$historicos[1]->diciembre}}</td>   
+              </tr>
+              <tr>
+                <td><b><u>Total</b></u></td>
+                <td><b><u>{{$historicos[0]->total}}</b></u></td>
+                <td><b><u>{{$historicos[1]->total}}</b></u></td>   
               </tr>              
             </table>
         </div>
