@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
 use App\User;
+use App\Relacion;
 use Auth;
 use DB;
 use Input;
@@ -52,12 +53,17 @@ class UsuarioController extends Controller
 
 	public function eliminar($id)
 	{
+		$url = "/usuarios";
 		$usuario = User::where('id',$id)->get()[0];
+		$asociacion = DB::table('gerenteproducto')->where('idUsuario', '=', $id)->count();
+		if($asociacion > 0){return redirect($url)->with('warning', 'No se puede eliminar el usuario porque tiene producto/s asociados, se deben quitar las asociaciones primero');}
+		
 		$url = "/usuarios";
 		if($usuario->delete()){
-			return redirect($url)->with('mensaje', 'Se ha eliminado el producto');
+			return redirect($url)->with('mensaje', 'Se ha eliminado el usuario');
 		}else{
-			return redirect($url)->with('warning', 'No se ha podido eliminar el producto');
+			return redirect($url)->with('warning', 'No se ha podido eliminar el usuario');
 		}
 	}
 }
+//SELECT count(*) FROM gerenteproducto WHERE idUsuario=9

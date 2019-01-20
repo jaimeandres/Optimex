@@ -52,8 +52,6 @@ class AdministrativoController extends Controller
         $total = DB::select('Select `idProducto`, (`enero`+ `febrero`+ `marzo`+ `abril`+ `mayo`+ `junio`+ `julio`+ `agosto`+ `septiembre`+ `octubre`+ `noviembre`+ `diciembre`) as total FROM `estrategia` ORDER BY `estrategia`.`idProducto` ASC');
         $productos =DB::table('gerenteproducto')->join('producto', 'gerenteproducto.idProducto', '=', 'producto.id')->select('producto.id', 'producto.nombre')->orderBy('producto.id', 'asc')->get();
 
-        //var_dump($total);
-        //exit();
         $datos = array(
             'productos' => $productos,
             'total' => $total
