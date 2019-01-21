@@ -29,7 +29,12 @@ class AdministrativoController extends Controller
 	public function edit($id)
 	{
 		$productos = DB::table('producto')->where('id', '=', $id)->get()[0];
-		return view('inventario.cargar')->with('productos',$productos);
+		$hoy = DB::select('Select curdate() as fechaHoy');
+		$datos = array(
+            'productos' => $productos,
+            'hoy' => $hoy
+        );
+        return view('inventario.cargar')->with('datos',$datos);
 	}
 
 	public function updates($id)

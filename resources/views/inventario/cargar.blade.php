@@ -5,23 +5,25 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
     <div class="panel panel-default">
-      <div class="panel-heading">Inventario del {{$productos->nombre}}</div>
+      <div class="panel-heading">Inventario del {{$datos["productos"]->nombre}}</div>
         <div class="panel-body">
 
-        <form action="{{URL::to('/inventario').'/'. $productos->id.'/edit'}}" method="POST" class="form-horizontal">
+        <form action="{{URL::to('/inventario').'/'. $datos['productos']->id.'/edit'}}" method="POST" class="form-horizontal">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">          
           <div class="form-group">
             <label class="control-label col-md-3">
               Cantidad
             </label>
             <div class="col-md-9">            
-              <input type="text" name="stock" pattern="[0-9]+" value="{{$productos->stock}}" class="form-control" required>            
-            </div><br><br>            
+              <input type="text" name="stock" pattern="[0-9]+" value="{{$datos['productos']->stock}}" class="form-control" required>            
+            </div>
+          </div>
+          <div class="form-group">            
             <label class="control-label col-md-3">
-              Fecha Caducidad (A-M-D)
+              Fecha Caducidad
             </label>
             <div class="col-md-9">            
-              <input type="text" name="caducidad" value="{{$productos->fechaCaducidad}}" class="form-control" required>            
+              <input type="date" min="{{$datos['hoy'][0]->fechaHoy}}" name="caducidad" value="{{$datos['productos']->fechaCaducidad}}" class="form-control" required>            
             </div>
           </div>
           <div class="form-group">
