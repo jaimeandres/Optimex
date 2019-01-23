@@ -30,10 +30,17 @@
             .title {
                 font-size: 90px;
                 margin-bottom: 40px;
+                font-weight: bold;
+                color: #3b83bd;
+            }
+
+            .h4, h4 {
+                font-size: 32px;
             }
 
             .quote {
                 font-size: 24px;
+                color: #c51d34;
             }
             .goToHome{
                 padding-top: 30px;
@@ -42,6 +49,9 @@
             .goToHome>a{
                 text-decoration: none;
                 color: #fff;
+            }
+            .btn {
+                font-size: 18px;
             }
         </style>
     </head>
