@@ -13,7 +13,7 @@
                 color: #B0BEC5;
                 display: table;
                 font-weight: 100;
-                font-family: 'Lato';
+                font-family: 'Arial Black';
             }
 
             .container {
@@ -28,19 +28,18 @@
             }
 
             .title {
-                font-size: 90px;
+                font-size: 85px;
                 margin-bottom: 40px;
-                font-weight: bold;
                 color: #3b83bd;
-            }
-
-            .h4, h4 {
-                font-size: 32px;
+                margin: 10px 13px 53px 31px;
             }
 
             .quote {
-                font-size: 24px;
+                
+                font-size: 28px;
                 color: #c51d34;
+                padding-top: 20px;
+                margin: 86px 0px 0px 0px;
             }
             .goToHome{
                 padding-top: 30px;
@@ -52,14 +51,16 @@
             }
             .btn {
                 font-size: 18px;
+                font-family: 'Lato';
             }
         </style>
     </head>
     <body oncontextmenu="return false" onkeydown="return false">
+        
         <div class="container">
-            <div class="content">
-                <div class="title">Optimex </div>
-                <div class="quote"><h4>Para Optimizar la distribución de sus Muestras Médicas utilize Optimex</h4></div>
+            <div class="content">                
+                <div class="title"><img src="Imagenes/Capsulas.jpg" align="left" height="287" width="450">Optimex</div><br>
+                <div class="quote">Para Optimizar la distribución de sus Muestras Médicas utilize Optimex</div>
                 <div class="goToHome">
                         <a href="{{URL::to('/inicio')}}">
                         <button type="button" class="btn btn-primary">Iniciar</button>
