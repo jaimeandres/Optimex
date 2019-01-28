@@ -30,14 +30,14 @@
             .title {
                 font-size: 85px;
                 margin-bottom: 40px;
-                color: #3b83bd;
+                color: #4F6584;
                 margin: 10px 13px 53px 31px;
             }
 
             .quote {
                 
                 font-size: 28px;
-                color: #c51d34;
+                color: #EC6C2F;
                 padding-top: 20px;
                 margin: 86px 0px 0px 0px;
             }
