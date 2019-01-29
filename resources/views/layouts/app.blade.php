@@ -107,7 +107,12 @@
                 </div>
             </div>
         </nav>
-
+        <div class="fondo">
+            <ul>
+                <li><img src="Imagenes/Capsulas.jpg" align="left" height="98" width="130"></li>
+                <li><span>Optimex</span></li>
+            </ul>
+        </div>
         @yield('content')
     </div>
 
