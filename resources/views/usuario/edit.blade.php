@@ -48,14 +48,7 @@
                                 <input type="email" class="form-control" name="email" value="{{ $usuarios->email }}" required>
                             </div>
                         </div>
-
-                        <!--div class="form-group">
-                            <label class="col-md-4 control-label">Nueva Contraseña</label>
-                            <div class="col-md-6">
-                                <input type="password" class="form-control" name="password" required>
-                            </div>
-                        </div-->
-
+                        
                         <div class="form-group">
                             <label class="col-md-4 control-label">Rol</label>
                             <div class="col-md-6">
