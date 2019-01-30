@@ -24,7 +24,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">Nombre</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="name" pattern="[A-Za-z0-9 ]+" value="{{ old('name') }}" required>
+                                <input type="text" class="form-control" name="name" pattern="[A-Za-z ]+" value="{{ old('name') }}" required>
                             </div>
                         </div>
 

@@ -21,7 +21,7 @@ class HistoricoController extends Controller
     public function index()
     {
         $id= Auth::user()->id;
-        if (Auth::user()->rol == 99) {
+        if (Auth::user()->rol == 99 || Auth::user()->rol == 2) {
             $productos =DB::table('gerenteproducto')->join('producto', 'gerenteproducto.idProducto', '=', 'producto.id')->select('producto.nombre', 'producto.id')->get();
         }else{
             $productos =DB::table('gerenteproducto')->join('producto', 'gerenteproducto.idProducto', '=', 'producto.id')->select('producto.nombre', 'producto.id')->where('gerenteproducto.idUsuario', '=', $id)->orderBy('producto.nombre', 'asc')->get();
