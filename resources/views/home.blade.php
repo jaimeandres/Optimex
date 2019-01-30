@@ -2,10 +2,8 @@
 
 <style>
 	.quote {        
-        font-size: 58px;
+        font-size: 23px;
         color: #EC6C2F;
-        padding-top: 20px;
-        margin: 86px 0px 0px 0px;
     }
     
 </style>
@@ -13,8 +11,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-        	<!--div class="quote"><span>Para Optimizar la distribución de sus Muestras Médicas utilize Optimex</span></div-->
+        <div class="col-md-8 col-md-offset-2">        	
         <div class="panel panel-default">
 			<div class="panel-body">
 			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -25,10 +22,6 @@
 			    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
 				<li data-target="#carousel-example-generic" data-slide-to="3"></li>
 				<li data-target="#carousel-example-generic" data-slide-to="4"></li>
-				<!--li data-target="#carousel-example-generic" data-slide-to="5"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="6"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="7"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="8"></li-->
 			  </ol>
 
 			  <!-- Wrapper for slides -->
@@ -63,30 +56,6 @@
 
 						</div>
 					</div>
-					<!--div class="item">
-						<img class="img-responsive" src="{{asset('Imagenes/Capsulas.jpg')}}" alt="...">
-						<div class="carousel-caption">
-
-						</div>
-					</div>
-					<div class="item">
-						<img class="img-responsive" src="{{asset('Imagenes/Capsulas.jpg')}}" alt="...">
-						<div class="carousel-caption">
-
-						</div>
-					</div>
-					<div class="item">
-						<img class="img-responsive" src="{{asset('Imagenes/Capsulas.jpg')}}" alt="...">
-						<div class="carousel-caption">
-
-						</div>
-					</div>
-					<div class="item">
-						<img class="img-responsive" src="{{asset('Imagenes/Capsulas.jpg')}}" alt="...">
-						<div class="carousel-caption">
-
-						</div>
-					</div-->
 			  </div>
 
 			  <!-- Controls -->
@@ -99,8 +68,9 @@
 			    <span class="sr-only">Next</span>
 			  </a>
 			</div>
-			</div>
-		</div-->
+			</div>			
+		</div>
+		<div class="quote"><span>Para Optimizar la distribución de sus Muestras Médicas utilize Optimex</span></div>
         </div>
     </div>
 </div>

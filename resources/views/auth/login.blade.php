@@ -44,6 +44,8 @@
                                 <button type="submit" class="btn btn-primary">
                                     Entrar
                                 </button>
+                                
+                                <a href="/reset">Olvido su contraseña?</a>
                             </div>
                         </div>
                     </form>

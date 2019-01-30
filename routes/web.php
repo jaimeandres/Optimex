@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'WelcomeController@index');
+Route::get('reset', 'Auth\ResetPasswordController@showResetForm');
+Route::post('reset', 'Auth\ResetPasswordController@reset');
 
 Route::group(['middleware' => ['auth','no-cache']], function () {
   Route::get('inicio', 'HomeController@index');
