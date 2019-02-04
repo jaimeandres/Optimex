@@ -1,6 +1,6 @@
-<html>
-    <head>
-        <title>Optimex:Bienvenidos</title>
+@extends('layouts.app')
+@section('head')  
+<title>Optimex:Bienvenidos</title>
         <link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -53,10 +53,30 @@
                 font-size: 18px;
                 font-family: 'Lato';
             }
+
+
+
+             .img-thumbnail, body {
+                background-color: #F7E6BE;
+            }
+
+            .navbar {
+                background-color: #001A57;
+                border: 0px;
+                border-bottom: 3px solid;
+                border-color: #FFF;    
+            }
+
+            .navbar-default .navbar-nav > li > a {
+                color: #FFFFFF;
+            }
+            .navbar-brand {
+                float: left;
+                padding: 0px;
+            }
         </style>
-    </head>
-    <body oncontextmenu="return false" onkeydown="return false">
-        
+@endsection
+@section('content')        
         <div class="container">
             <div class="content">                
                 <div class="title"><img src="Imagenes/Capsulas.jpg" align="left" height="287" width="450">Optimex</div><br>
@@ -67,5 +87,4 @@
                     </a>
             </div>
         </div>
-    </body>
-</html>
+@endsection
