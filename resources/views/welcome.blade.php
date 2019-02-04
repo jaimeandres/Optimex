@@ -1,9 +1,6 @@
 @extends('layouts.app')
 @section('head')  
 <title>Optimex:Bienvenidos</title>
-        <link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
         <style>
             body {
                 margin: 0;
@@ -18,7 +15,6 @@
 
             .container {
                 text-align: center;
-                display: table-cell;
                 vertical-align: middle;
             }
 
@@ -31,7 +27,7 @@
                 font-size: 85px;
                 margin-bottom: 40px;
                 color: #4F6584;
-                margin: 10px 13px 53px 31px;
+                margin: 60px 13px 53px 31px;
             }
 
             .quote {
@@ -54,8 +50,6 @@
                 font-family: 'Lato';
             }
 
-
-
              .img-thumbnail, body {
                 background-color: #F7E6BE;
             }
@@ -70,6 +64,7 @@
             .navbar-default .navbar-nav > li > a {
                 color: #FFFFFF;
             }
+
             .navbar-brand {
                 float: left;
                 padding: 0px;
