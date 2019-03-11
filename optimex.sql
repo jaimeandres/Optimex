@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-01-2019 a las 02:04:37
+-- Tiempo de generación: 12-03-2019 a las 00:13:36
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.0.32
 
@@ -52,17 +52,18 @@ CREATE TABLE `estrategia` (
 --
 
 INSERT INTO `estrategia` (`id`, `idProducto`, `enero`, `febrero`, `marzo`, `abril`, `mayo`, `junio`, `julio`, `agosto`, `septiembre`, `octubre`, `noviembre`, `diciembre`, `created_at`, `updated_at`) VALUES
-(1, 1, 2800, 2800, 2800, 2800, 2800, 2800, 2800, 2800, 2800, 2800, 2800, 2800, NULL, '2019-01-07 03:38:08'),
-(3, 2, 3000, 3000, 3500, 3200, 3200, 3600, 3200, 3200, 3300, 3200, 3400, 2900, NULL, '2018-12-30 09:17:11'),
-(4, 3, 3200, 3400, 3500, 3700, 3500, 3800, 3800, 3700, 3600, 3700, 3800, 3400, NULL, '2018-12-30 10:03:59'),
-(7, 6, 1300, 1200, 1300, 1400, 1400, 1400, 1400, 1300, 1300, 1400, 1500, 1200, '2018-12-21 07:37:01', '2018-12-30 10:07:36'),
-(8, 7, 4000, 4500, 4500, 4000, 4000, 4000, 3900, 4500, 4700, 4600, 4800, 3600, '2018-12-21 07:37:05', '2018-12-30 10:08:22'),
-(9, 4, 850, 870, 870, 890, 900, 900, 900, 900, 910, 900, 910, 880, NULL, '2018-12-30 10:05:37'),
-(10, 5, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, NULL, '2018-12-30 10:06:37'),
-(11, 9, 3300, 3200, 3200, 3200, 3300, 3300, 3400, 3400, 3200, 3200, 3200, 2900, '2018-12-26 20:14:55', '2018-12-30 10:09:50'),
-(14, 10, 800, 800, 800, 800, 800, 800, 800, 800, 800, 800, 800, 800, '2018-12-29 01:15:19', '2018-12-30 00:28:02'),
-(15, 11, 6555, 6555, 6555, 6555, 6555, 6555, 6555, 6555, 6555, 6555, 6555, 6555, '2019-01-06 10:32:29', '2019-01-06 10:54:38'),
-(16, 12, 2300, 2300, 2300, 2300, 2300, 2300, 2300, 2300, 2300, 2300, 2300, 2300, '2019-01-07 05:02:28', '2019-01-07 05:43:52');
+(1, 1, 2800, 2800, 2800, 2800, 2800, 2800, 2800, 2800, 2800, 2800, 2800, 2800, NULL, '2019-01-07 08:38:08'),
+(3, 2, 3000, 3000, 3500, 3200, 3200, 3600, 3200, 3200, 3300, 3200, 3400, 2900, NULL, '2018-12-30 14:17:11'),
+(4, 3, 3200, 3400, 3500, 3700, 3500, 3800, 3800, 3700, 3600, 3700, 3800, 3400, NULL, '2018-12-30 15:03:59'),
+(7, 6, 1300, 1200, 1300, 1400, 1400, 1400, 1400, 1300, 1300, 1400, 1500, 1200, '2018-12-21 12:37:01', '2018-12-30 15:07:36'),
+(8, 7, 4000, 4500, 4500, 4000, 4000, 4000, 3900, 4500, 4700, 4600, 4800, 3600, '2018-12-21 12:37:05', '2018-12-30 15:08:22'),
+(9, 4, 850, 870, 870, 890, 900, 900, 900, 900, 910, 900, 910, 880, NULL, '2018-12-30 15:05:37'),
+(10, 5, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, 2200, NULL, '2018-12-30 15:06:37'),
+(11, 9, 3300, 3200, 3200, 3200, 3300, 3300, 3400, 3400, 3200, 3200, 3200, 2900, '2018-12-27 01:14:55', '2018-12-30 15:09:50'),
+(14, 10, 800, 800, 800, 800, 800, 800, 800, 800, 800, 800, 800, 800, '2018-12-29 06:15:19', '2018-12-30 05:28:02'),
+(15, 11, 6555, 6555, 6555, 6555, 6555, 6555, 6555, 6555, 6555, 6555, 6555, 6555, '2019-01-06 15:32:29', '2019-01-06 15:54:38'),
+(16, 12, 2300, 2300, 2300, 2300, 2300, 2300, 2300, 2300, 2300, 2300, 2300, 2300, '2019-01-07 10:02:28', '2019-01-07 10:43:52'),
+(17, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2019-01-20 23:36:16', '2019-01-20 23:36:16');
 
 -- --------------------------------------------------------
 
@@ -83,17 +84,17 @@ CREATE TABLE `gerenteproducto` (
 --
 
 INSERT INTO `gerenteproducto` (`id`, `idUsuario`, `idProducto`, `created_at`, `updated_at`) VALUES
-(1, 2, 2, '2018-12-21 04:05:58', '2018-12-21 04:05:58'),
-(3, 4, 1, '2018-12-21 04:06:07', '2018-12-21 04:06:07'),
-(4, 4, 3, '2018-12-21 04:06:08', '2018-12-21 04:06:08'),
-(6, 2, 6, '2018-12-21 07:37:01', '2018-12-21 07:37:01'),
-(7, 4, 7, '2018-12-21 07:37:05', '2018-12-21 07:37:05'),
-(10, 2, 9, '2018-12-27 22:14:31', '2018-12-27 22:14:31'),
-(16, 2, 4, '2018-12-28 23:57:58', '2018-12-28 23:57:58'),
-(20, 4, 5, '2018-12-29 01:16:45', '2018-12-29 01:16:45'),
-(24, 4, 11, '2019-01-07 03:48:12', '2019-01-07 03:48:12'),
-(25, 8, 12, '2019-01-07 05:02:28', '2019-01-07 05:02:28'),
-(26, 8, 10, '2019-01-07 05:37:40', '2019-01-07 05:37:40');
+(1, 2, 2, '2018-12-21 09:05:58', '2018-12-21 09:05:58'),
+(3, 4, 1, '2018-12-21 09:06:07', '2018-12-21 09:06:07'),
+(4, 4, 3, '2018-12-21 09:06:08', '2018-12-21 09:06:08'),
+(6, 2, 6, '2018-12-21 12:37:01', '2018-12-21 12:37:01'),
+(7, 4, 7, '2018-12-21 12:37:05', '2018-12-21 12:37:05'),
+(10, 2, 9, '2018-12-28 03:14:31', '2018-12-28 03:14:31'),
+(16, 2, 4, '2018-12-29 04:57:58', '2018-12-29 04:57:58'),
+(20, 4, 5, '2018-12-29 06:16:45', '2018-12-29 06:16:45'),
+(24, 4, 11, '2019-01-07 08:48:12', '2019-01-07 08:48:12'),
+(25, 8, 12, '2019-01-07 10:02:28', '2019-01-07 10:02:28'),
+(26, 8, 10, '2019-01-07 10:37:40', '2019-01-07 10:37:40');
 
 -- --------------------------------------------------------
 
@@ -154,19 +155,9 @@ INSERT INTO `historicos` (`id`, `idProducto`, `enero`, `febrero`, `marzo`, `abri
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `migrations`
---
-
-INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(12, '2018_12_10_043129_create_producto_table', 1),
-(13, '2018_12_10_043304_create_relacionar_table', 1),
-(16, '2018_12_20_211749_estrategia', 2),
-(17, '2018_12_20_211822_historicos', 2);
 
 -- --------------------------------------------------------
 
@@ -175,8 +166,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 --
 
 CREATE TABLE `password_resets` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -188,11 +179,11 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `producto` (
   `id` int(10) UNSIGNED NOT NULL,
-  `nombre` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `stock` int(11) UNSIGNED NOT NULL DEFAULT '0',
-  `estado` int(11) NOT NULL DEFAULT '0',
-  `fechaCaducidad` date NOT NULL DEFAULT '2019-12-06',
-  `cobertura` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `nombre` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `stock` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `estado` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `fechaCaducidad` date NOT NULL DEFAULT '2039-12-06',
+  `cobertura` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -202,17 +193,18 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id`, `nombre`, `stock`, `estado`, `fechaCaducidad`, `cobertura`, `created_at`, `updated_at`) VALUES
-(1, 'Producto 1', 19777, 1, '2019-12-06', 11, '2018-12-21 04:04:43', '2019-01-06 01:24:32'),
-(2, 'Producto 2', 49351, 1, '2021-03-06', 26, '2018-12-21 04:04:51', '2018-12-21 04:04:51'),
-(3, 'Producto 3', 38081, 1, '2020-12-06', 23, '2018-12-21 04:04:59', '2018-12-21 04:04:59'),
-(4, 'Producto 4', 4732, 1, '2019-09-06', 8, '2018-12-21 04:05:05', '2018-12-21 04:05:05'),
-(5, 'Producto 5', 31999, 1, '2019-10-06', 9, '2018-12-21 04:05:13', '2018-12-21 04:05:13'),
-(6, 'Producto 6', 8099, 1, '2020-05-06', 16, '2018-12-21 07:33:41', '2018-12-21 07:33:41'),
-(7, 'Producto 7', 0, 1, '2021-02-06', 25, '2018-12-21 07:36:36', '2018-12-21 07:36:36'),
-(9, 'Producto 8', 13412, 1, '2020-07-06', 18, '2018-12-22 05:32:44', '2018-12-28 02:45:10'),
-(10, 'Producto 9', 2033, 1, '2022-11-06', 46, '2018-12-28 21:58:50', '2018-12-28 21:58:50'),
-(11, 'Producto 10', 42428, 1, '2020-08-31', 19, '2019-01-06 10:24:14', '2019-01-06 10:39:56'),
-(12, 'Producto 11', 50713, 1, '2020-02-06', 13, '2019-01-07 05:00:19', '2019-01-07 05:39:27');
+(1, 'Producto 1', 19777, 1, '2019-12-06', 9, '2018-12-21 09:04:43', '2019-01-21 21:17:28'),
+(2, 'Producto 2', 49351, 1, '2021-03-06', 24, '2018-12-21 09:04:51', '2018-12-21 09:04:51'),
+(3, 'Producto 3', 38081, 1, '2020-12-06', 21, '2018-12-21 09:04:59', '2018-12-21 09:04:59'),
+(4, 'Producto 4', 4732, 1, '2019-09-06', 6, '2018-12-21 09:05:05', '2018-12-21 09:05:05'),
+(5, 'Producto 5', 31999, 1, '2019-10-06', 7, '2018-12-21 09:05:13', '2018-12-21 09:05:13'),
+(6, 'Producto 6', 8099, 1, '2020-05-06', 14, '2018-12-21 12:33:41', '2018-12-21 12:33:41'),
+(7, 'Producto 7', 0, 1, '2021-02-06', 23, '2018-12-21 12:36:36', '2018-12-21 12:36:36'),
+(9, 'Producto 8', 13412, 1, '2020-07-06', 16, '2018-12-22 10:32:44', '2018-12-28 07:45:10'),
+(10, 'Producto 9', 2033, 1, '2022-11-06', 44, '2018-12-29 02:58:50', '2019-01-19 03:28:38'),
+(11, 'Producto 10', 42428, 1, '2020-08-31', 18, '2019-01-06 15:24:14', '2019-01-06 15:39:56'),
+(12, 'Producto 11', 50713, 1, '2020-02-06', 11, '2019-01-07 10:00:19', '2019-01-07 10:39:27'),
+(13, 'Producto 12', 0, 0, '2039-12-06', 249, '2019-01-20 23:36:04', '2019-01-20 23:36:04');
 
 -- --------------------------------------------------------
 
@@ -222,9 +214,9 @@ INSERT INTO `producto` (`id`, `nombre`, `stock`, `estado`, `fechaCaducidad`, `co
 
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `rol` int(11) NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -236,12 +228,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `rol`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Jaime Berrazueta', 'jaime.berrazueta@udla.edu.ec', '$2y$10$mFT5QB2vgorBGe.Lv9qgBeNJ2TF2VBvfEqhQAPoYZXo63HjN4Kjy.', 99, 'okSEta5v878hGpQTH1wTIh2pZgMpglIiUMneIIgetgBxiNQzhVwoRsQ082Kp', '2018-12-10 09:28:44', '2018-12-10 09:28:44'),
-(2, 'Gerente Producto 1', 'gerente.producto@empresa.com', '$2y$10$S6JllzGQtHUlmZ9eZ/Ukz.praPBSPKHAE6gttUr9DUAhTm21FMGQm', 1, 'rE9L6h0eBc99l2kODacRusnMvsg25NPYy1CYqYd3d92mXpmqbnq4psMaww3W', '2018-12-11 01:30:46', '2018-12-11 01:30:46'),
-(3, 'Administrativo 1', 'administrativo@empresa.com', '$2y$10$lqzoIHYuLlm1OOQQJ1gajOih4HZEpkD3BeR36BaeOsebNcQ2t6uMK', 2, '1UsgsD1zjefLYO9pX4sJiP5qvNTmPfmlJbWMt05EoxTFn6AtxnZsKqH2Rq5P', '2018-12-11 01:31:29', '2018-12-11 01:31:29'),
-(4, 'Gerente Producto 2', 'gerente.producto1@empresa.com', '$2y$10$V/ikpML.lakBA9eGQ0TRE.px/aXY41sMvgER5j8FSRBG6SpcLJip2', 1, 'g4BJHXDrggF9thpzuzHkz3xA99h1oxKl6XQzb4HP4uaxGJ65oQFnwtzXzp16', '2018-12-11 10:01:15', '2018-12-11 10:01:15'),
-(6, 'Administrativo 2', 'administrativo1@empresa.com', '$2y$10$kUo3lJsaUWw5aHkY0UtIPeglBAzi0770iRLsiXGdjGlaJiA2cHX5S', 2, 'R2th6aoOqAPrJ3h8c3PGs21mymfmZpc8V2UwhZPNvTL5arQ1qyVR22hSf6o5', '2019-01-06 22:17:55', '2019-01-06 22:17:55'),
-(8, 'Gerente Producto 3', 'gerente.producto2@empresa.com', '$2y$10$4q3fRcpZcvUrrdHvQjZjQOwnH6E/qTadfIF62jyWP3QF0XOXrVJga', 1, '8uEvCCap2oTjCtPAchvr3ol2ZaibOYIQd2aBdGlLh4kue41vPXzd5PDgLpjw', '2019-01-07 04:54:26', '2019-01-07 04:54:26');
+(1, 'Jaime Berrazueta', 'jaime.berrazueta@udla.edu.ec', '$2y$10$mFT5QB2vgorBGe.Lv9qgBeNJ2TF2VBvfEqhQAPoYZXo63HjN4Kjy.', 99, '8D3DETcm1vt8kraNcS64kaj59aUqIDIEl6iOGBFUkQWtfUsxL7snrckrmtSX', '2018-12-10 14:28:44', '2018-12-10 14:28:44'),
+(2, 'Gerente Producto 1', 'gerente.producto@empresa.com', '$2y$10$S6JllzGQtHUlmZ9eZ/Ukz.praPBSPKHAE6gttUr9DUAhTm21FMGQm', 1, 'rE9L6h0eBc99l2kODacRusnMvsg25NPYy1CYqYd3d92mXpmqbnq4psMaww3W', '2018-12-11 06:30:46', '2018-12-11 06:30:46'),
+(3, 'Administrativo 1', 'administrativo@empresa.com', '$2y$10$lqzoIHYuLlm1OOQQJ1gajOih4HZEpkD3BeR36BaeOsebNcQ2t6uMK', 2, '1UsgsD1zjefLYO9pX4sJiP5qvNTmPfmlJbWMt05EoxTFn6AtxnZsKqH2Rq5P', '2018-12-11 06:31:29', '2018-12-11 06:31:29'),
+(4, 'Gerente Producto 2', 'gerente.producto1@empresa.com', '$2y$10$V/ikpML.lakBA9eGQ0TRE.px/aXY41sMvgER5j8FSRBG6SpcLJip2', 1, 'g4BJHXDrggF9thpzuzHkz3xA99h1oxKl6XQzb4HP4uaxGJ65oQFnwtzXzp16', '2018-12-11 15:01:15', '2018-12-11 15:01:15'),
+(6, 'Administrativo 2', 'administrativo1@empresa.com', '$2y$10$kUo3lJsaUWw5aHkY0UtIPeglBAzi0770iRLsiXGdjGlaJiA2cHX5S', 2, 'gm4AslcFFJTwSTmBgr12Ql7Ha3nz5uSRUVcJWlXYtvDJwzIlgFB2WStFAW6Y', '2019-01-07 03:17:55', '2019-01-07 03:17:55'),
+(8, 'Gerente Producto 3', 'gerente.producto2@empresa.com', '$2y$10$4q3fRcpZcvUrrdHvQjZjQOwnH6E/qTadfIF62jyWP3QF0XOXrVJga', 1, '8uEvCCap2oTjCtPAchvr3ol2ZaibOYIQd2aBdGlLh4kue41vPXzd5PDgLpjw', '2019-01-07 09:54:26', '2019-01-19 04:05:35');
 
 --
 -- Índices para tablas volcadas
@@ -275,17 +267,24 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`);
+
+--
 -- Indices de la tabla `producto`
 --
 ALTER TABLE `producto`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `producto_nombre_unique` (`nombre`);
 
 --
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id` (`id`);
+  ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -295,7 +294,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `estrategia`
 --
 ALTER TABLE `estrategia`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `gerenteproducto`
@@ -313,13 +312,13 @@ ALTER TABLE `historicos`
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
