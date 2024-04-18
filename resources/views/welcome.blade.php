@@ -1,0 +1,85 @@
+@extends('layouts.app')
+@section('head')  
+<title>Optimex:Bienvenidos</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                color: #B0BEC5;
+                display: table;
+                font-weight: 100;
+                font-family: 'Arial Black';
+            }
+
+            .container {
+                text-align: center;
+                vertical-align: middle;
+            }
+
+            .content {
+                text-align: center;
+                display: inline-block;
+            }
+
+            .title {
+                font-size: 85px;
+                margin-bottom: 40px;
+                color: #4F6584;
+                margin: 60px 13px 53px 31px;
+            }
+
+            .quote {
+                
+                font-size: 28px;
+                color: #EC6C2F;
+                padding-top: 20px;
+                margin: 86px 0px 0px 0px;
+            }
+            .goToHome{
+                padding-top: 30px;
+                top:30px;
+            }
+            .goToHome>a{
+                text-decoration: none;
+                color: #fff;
+            }
+            .btn {
+                font-size: 18px;
+                font-family: 'Lato';
+            }
+
+             .img-thumbnail, body {
+                background-color: #F7E6BE;
+            }
+
+            .navbar {
+                background-color: #001A57;
+                border: 0px;
+                border-bottom: 3px solid;
+                border-color: #FFF;    
+            }
+
+            .navbar-default .navbar-nav > li > a {
+                color: #FFFFFF;
+            }
+
+            .navbar-brand {
+                float: left;
+                padding: 0px;
+            }
+        </style>
+@endsection
+@section('content')        
+        <div class="container">
+            <div class="content">                
+                <div class="title"><img src="Imagenes/Capsulas.jpg" align="left" height="287" width="450">Optimex</div><br>
+                <div class="quote">Para Optimizar la distribución de sus Muestras Médicas utilize Optimex</div>
+                <div class="goToHome">
+                        <a href="{{URL::to('/inicio')}}">
+                        <button type="button" class="btn btn-primary">Iniciar</button>
+                    </a>
+            </div>
+        </div>
+@endsection
